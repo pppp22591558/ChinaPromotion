@@ -3,6 +3,7 @@
 /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
 
 @import '../variables.css';
+@import "./App-component.scss";
 
 /*
  * Base styles
@@ -14,6 +15,12 @@ html {
   font-size: 1em; /* ~16px; */
   font-family: var(--font-family-base);
   line-height: 1.375; /* ~22px */
+}
+
+body{
+  background-color: #4A4A4F;
+  -webkit-text-size-adjust:none;
+  overflow-y: hidden;
 }
 
 /*

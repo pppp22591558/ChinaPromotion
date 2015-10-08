@@ -1,0 +1,12 @@
+/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
+
+@import '../../variables.css';
+
+.Header-bar{
+  height: 60px;
+  position: absolute;
+  top:0;
+  right: 0;
+  left: 0;
+  background: white;
+}

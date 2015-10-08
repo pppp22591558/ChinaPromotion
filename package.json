@@ -16,8 +16,9 @@
     "history": "1.11.1",
     "jade": "1.11.0",
     "normalize.css": "3.0.3",
-    "react": "0.14.0-rc1",
-    "react-dom": "0.14.0-rc1",
+    "react": ">=0.13.0",
+    "react-dom": ">=0.13.0",
+    "react-motion": "^0.3.0",
     "react-routing": "0.0.4",
     "source-map-support": "0.3.2",
     "superagent": "1.4.0"

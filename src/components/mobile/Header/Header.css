@@ -1,0 +1,10 @@
+/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
+
+@import '../../variables.css';
+
+img.Header-rock{
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  top:-30px;
+}

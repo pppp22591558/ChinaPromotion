@@ -1,0 +1,16 @@
+/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
+
+@import '../../variables.css';
+
+.Footer{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.Footer-img {
+  width: 100%;
+  position: absolute;
+  bottom: -30px;
+}
