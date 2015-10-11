@@ -23,9 +23,7 @@ class Footer extends Component {
     // this.renderCss(`.Footer-viewport:after {content:' ${width}x${height}';}`);
 
     return (
-      <div className="Footer">
-        <img className="Footer-img" src={require('./rock.png')}></img>
-      </div>
+      null
     );
   }
 

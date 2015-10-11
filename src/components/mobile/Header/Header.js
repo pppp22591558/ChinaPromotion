@@ -10,7 +10,7 @@ class Header extends Component {
 
   render() {
     return (
-      <img className="Header-rock" src={require('./rock.png')}></img>
+      null
     );
   }
 

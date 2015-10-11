@@ -3,13 +3,23 @@ import reactDOM from 'react-dom';
 import withStyles from '../../decorators/withStyles';
 import styles from './Content.css';
 import Swipe from '../../vendor/swipe';
+import AdOne from '../mobile/AdOne';
+import AdTwo from '../mobile/AdTwo';
+import AdThree from '../mobile/AdThree';
+import AdFour from '../mobile/AdFour';
+import AdFive from '../mobile/AdFive';
 import { Motion, spring } from 'react-motion';
 
 @withStyles(styles)
 class Content extends Component {
   state = {
     viewWidth: 0,
-    viewHeight: 0
+    viewHeight: 0,
+    slide1: true,
+    slide2: false,
+    slide3: false,
+    slide4: false,
+    slide5: false,
   }
   componentDidMount() {
     this.setState({
@@ -17,6 +27,7 @@ class Content extends Component {
       viewHeight: window.innerHeight
     });
     document.title = 'China Promotion Page';
+    let _ = this;
     this.swipe = Swipe(reactDOM.findDOMNode(this),
       {
         startSlide: 0,
@@ -25,8 +36,29 @@ class Content extends Component {
         continuous: true,
         disableScroll: true,
         stopPropagation: false,
-        callback: function(index, elem) {},
-        transitionEnd: function(index, elem) {}
+        callback: function(index, elem) {
+          let num = index + 1;
+          let slide = 'slide' + num;
+          switch (num) {
+            case 1:
+              _.setState({slide1: true, slide2: false, slide5: false});
+              break;
+            case 2:
+              _.setState({slide2: true, slide3: false, slide1: false});
+            break;
+            case 3:
+              _.setState({slide3: true, slide4: false, slide2: false});
+              break;
+            case 4:
+              _.setState({slide4: true, slide5: false, slide3: false});
+            break;
+            case 5:
+              _.setState({slide5: true, slide1: false, slide4: false});
+              break;
+          }
+        },
+        transitionEnd: function(index, elem) {
+        }
       }
     );
   }
@@ -54,36 +86,27 @@ class Content extends Component {
         <div className='swipe-wrap'>
           <div style={styles} className="ad ad1">
             <div className="ad-wrap">
-              <Motion
-                defaultStyle={{x:-100}}
-                style={{x: spring(0, [180, 12])}}>
-                {interpolatedStyle => <h1 style={{marginTop: interpolatedStyle.x + 'px'}}>最潮的手機佔地教育遊戲<br/>最有互助精神的社群</h1>}
-              </Motion>
-              <Motion
-                defaultStyle={{x:0}}
-                style={{x: spring(80, [180, 12])}}>
-                {interpolatedStyle => <img className="ad-1-img" ref={(c) => this._img1 = c} src={require('./app-05.png')} style={{ width: interpolatedStyle.x + '%' }}></img>}
-              </Motion>
+              <AdOne active = {this.state.slide1}/>
             </div>
           </div>
           <div style={styles} className="ad ad2">
             <div className="ad-wrap">
-              <h1>slide2</h1>
+              <AdTwo active = {this.state.slide2}/>
             </div>
           </div>
           <div style={styles} className="ad ad3">
             <div className="ad-wrap">
-              <h1>slide3</h1>
+              <AdThree active = {this.state.slide3}/>
             </div>
           </div>
           <div style={styles} className="ad ad4">
             <div className="ad-wrap">
-              <h1>slide4</h1>
+              <AdFour active = {this.state.slide4}/>
             </div>
           </div>
           <div style={styles} className="ad ad5">
             <div className="ad-wrap">
-              <h1>slide5</h1>
+              <AdFive active = {this.state.slide5}/>
             </div>
           </div>
         </div>

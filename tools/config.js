@@ -10,6 +10,7 @@
 import path from 'path';
 import webpack from 'webpack';
 import merge from 'lodash.merge';
+import precss from 'precss';
 
 const DEBUG = !process.argv.includes('release');
 const VERBOSE = process.argv.includes('verbose');
@@ -96,6 +97,7 @@ const config = {
       }),
       require('postcss-nested')(),
       require('postcss-cssnext')({ autoprefixer: AUTOPREFIXER_BROWSERS }),
+      require('precss')(),
     ];
   },
 };

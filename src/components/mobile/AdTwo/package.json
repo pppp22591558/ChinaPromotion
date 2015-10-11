@@ -1,0 +1,6 @@
+{
+  "name": "AdOne",
+  "main": "./AdTwo.js",
+  "version": "0.0.0",
+  "private": true
+}
