@@ -62,3 +62,26 @@
 .ad3{
   background: #CC9D70;
 }
+
+.Content-left, .Content-right{
+  position: absolute;
+  top: 50%;
+  width: 44px;
+  height: 44px;
+  img{
+    position: relative;
+    opacity: 0.4;
+    height: 32px;
+    margin-top: 6px;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.Content-left{
+  left: 0;
+}
+
+.Content-right{
+  right: 0;
+}

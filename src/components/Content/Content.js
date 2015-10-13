@@ -74,10 +74,10 @@ class Content extends Component {
     );
 
     //animate the right and left arrow icons
-    const left = reactDOM.findDOMNode(this.refs.left);
-    const right = reactDOM.findDOMNode(this.refs.right);
-    TweenMax.to(left, 0.6, {left: '8px', repeat: -1, yoyo:true});
-    TweenMax.to(right, 0.6, {right: '8px', repeat: -1, yoyo:true});
+    const leftArrow = reactDOM.findDOMNode(this.refs.leftArrow);
+    const rightArrow = reactDOM.findDOMNode(this.refs.rightArrow);
+    TweenMax.to(leftArrow, 0.6, {left: '-8px', repeat: -1, yoyo:true});
+    TweenMax.to(rightArrow, 0.6, {right: '-8px', repeat: -1, yoyo:true});
   }
 
   //go to the next slide
@@ -139,8 +139,12 @@ class Content extends Component {
             </div>
           </div>
         </div>
-        <img onClick={this.goPrev} ref="left" style={{left: '16px'}} className="Content-left" src={require('./left.png')}></img>
-        <img onClick={this.goNext} ref="right" style={{right: '16px'}} className="Content-right" src={require('./right.png')}></img>
+        <div className="Content-left" onClick={this.goPrev}>
+          <img ref="leftArrow" style={{left: '0px'}} src={require('./left.png')}></img>
+        </div>
+        <div className="Content-right" onClick={this.goNext}>
+          <img ref="rightArrow" style={{right: '0px'}} src={require('./right.png')}></img>
+        </div>
       </div>
     )
   }

@@ -21,17 +21,3 @@
   padding-left: 20px;
   padding-right: 20px;
 }
-
-.Content-left{
-  position: absolute;
-  top: 50%;
-  width: 3%;
-  opacity: 0.4;
-}
-
-.Content-right{
-  position: absolute;
-  top: 50%;
-  width: 3%;
-  opacity: 0.4;
-}
