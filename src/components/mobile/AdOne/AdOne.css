@@ -1,6 +1,37 @@
+.AdOne-header{
+  h3{
+    margin-top: -2%;
+    margin-bottom: 15%;
+  }
+  .palm{
+    position: absolute;
+    height: 4em;
+  }
+  .palm-left{
+    left: 1.5em;
+  }
+  .palm-right{
+    right: 1.5em;
+  }
+}
+
 .view{
   width: 80%;
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+.Content-left{
+  position: absolute;
+  top: 50%;
+  width: 3%;
+  opacity: 0.4;
+}
+
+.Content-right{
+  position: absolute;
+  top: 50%;
+  width: 3%;
+  opacity: 0.4;
 }

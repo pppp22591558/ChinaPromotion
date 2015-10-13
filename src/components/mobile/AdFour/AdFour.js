@@ -27,8 +27,9 @@ class AdFour extends Component{
 
     return(
       <div>
-        <div ref="header" style={styles.header}>
-          <h1>考前时间不够用?<br/>掌握弱点快复习</h1>
+        <div className="header" ref="header" style={styles.header}>
+          <h1>考前时间不够用?</h1>
+          <h2>掌握弱点快复习</h2>
         </div>
         <div className="view">
         </div>

@@ -1,0 +1,23 @@
+.AdThree-view{
+  padding-top: 10%;
+  .rank{
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    transition: 1s ease-in-out;
+    -webkit-transition: 1s ease-in-out;
+    -ms-transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+    opacity: 0.8;
+    &.rank3{
+      opacity: 1;
+    }
+    h5{
+      margin: 0;
+      position: absolute;
+      line-height: 38px;
+      width: 100%;
+    }
+  }
+}

@@ -7,10 +7,12 @@
   bottom: 0;
   right: 0;
   left: 0;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .Footer-img {
-  width: 100%;
+  width: 33%;
   position: absolute;
-  bottom: -30px;
+  bottom: 16px;
 }

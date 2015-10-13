@@ -27,9 +27,9 @@ class AdFive extends Component{
 
     return(
       <div>
-        <div ref="header" style={styles.header}>
-          <h1>爹娘想刷存在感?<br/>战绩随时报给你</h1>
-          <h3>中国学生定制版</h3>
+        <div className="header" ref="header" style={styles.header}>
+          <h1>爹娘想刷存在感?</h1>
+          <h2>战绩随时报给你</h2>
         </div>
         <div className="view">
         </div>

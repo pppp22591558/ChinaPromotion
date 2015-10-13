@@ -23,7 +23,9 @@ class Footer extends Component {
     // this.renderCss(`.Footer-viewport:after {content:' ${width}x${height}';}`);
 
     return (
-      null
+      <div className="Footer">
+        <img className="Footer-img" src={require('./appstore.svg')}></img>
+      </div>
     );
   }
 

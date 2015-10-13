@@ -23,12 +23,16 @@ class AdTwo extends Component{
         color: '#4A4A4F',
         top: -40
       },
+      question: {
+        marginBottom: '0.3em'
+      }
     };
 
     return(
       <div>
-        <div ref="header" style={styles.header}>
-          <h1>题海战术太无聊？<br/>答题攻地更有趣</h1>
+        <div className="header" ref="header" style={styles.header}>
+          <h1>题海战术太无聊？</h1>
+          <h2>答题攻地更有趣</h2>
         </div>
         <div className="view">
         </div>
