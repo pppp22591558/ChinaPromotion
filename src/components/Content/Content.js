@@ -18,8 +18,7 @@ class Content extends Component {
       isActive: true
     });
   }
-
-
+  
   render(){
     if (this.state.viewWidth > 968){
       return this.renderDesktop();
