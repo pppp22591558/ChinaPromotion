@@ -18,21 +18,20 @@ class SwipeView extends Component {
     this.goPrev = this.goPrev.bind(this);
   }
   state = {
-    viewWidth: 0,
-    viewHeight: 0,
     slide1: true,
     slide2: false,
     slide3: false,
     slide4: false,
     slide5: false,
-    isActive: false,
+    viewWidth: 0,
+    viewHeight: 0,
   }
   componentDidMount() {
 
     this.setState({
       viewWidth: window.innerWidth,
       viewHeight: window.innerHeight,
-    });
+    })
 
     let _ = this;
     _.swipe = Swipe(reactDOM.findDOMNode(this.refs.swipe),
@@ -88,39 +87,46 @@ class SwipeView extends Component {
   }
 
   render(){
-    const { viewWidth, viewHeight } = this.state;
     let styles = {
       // height: viewHeight,
-      width: viewWidth
+      width: this.state.viewWidth
     };
     return(
-      <div className="swipe" ref="swipe">
-        <div className='swipe-wrap'>
-          <div style={styles} className="ad ad1">
-            <div className="ad-wrap">
-              <AdOne active = {this.state.slide1} next = {this.goNext}/>
+      <div className="SwipeView">
+        <div className="swipe" ref="swipe">
+          <div className='swipe-wrap'>
+            <div style={styles} className="ad ad1">
+              <div className="ad-wrap">
+                <AdOne active = {this.state.slide1} next = {this.goNext}/>
+              </div>
+            </div>
+            <div style={styles} className="ad ad2">
+              <div className="ad-wrap">
+                <AdTwo active = {this.state.slide2} next = {this.goNext}/>
+              </div>
+            </div>
+            <div style={styles} className="ad ad3">
+              <div className="ad-wrap">
+                <AdThree active = {this.state.slide3} clientWidth = {this.state.viewWidth} next = {this.goNext}/>
+              </div>
+            </div>
+            <div style={styles} className="ad ad4">
+              <div className="ad-wrap">
+                <AdFour active = {this.state.slide4} next = {this.goNext}/>
+              </div>
+            </div>
+            <div style={styles} className="ad ad5">
+              <div className="ad-wrap">
+                <AdFive active = {this.state.slide5} next = {this.goNext}/>
+              </div>
             </div>
           </div>
-          <div style={styles} className="ad ad2">
-            <div className="ad-wrap">
-              <AdTwo active = {this.state.slide2} next = {this.goNext}/>
-            </div>
-          </div>
-          <div style={styles} className="ad ad3">
-            <div className="ad-wrap">
-              <AdThree active = {this.state.slide3} clientWidth = {this.state.viewWidth} next = {this.goNext}/>
-            </div>
-          </div>
-          <div style={styles} className="ad ad4">
-            <div className="ad-wrap">
-              <AdFour active = {this.state.slide4} next = {this.goNext}/>
-            </div>
-          </div>
-          <div style={styles} className="ad ad5">
-            <div className="ad-wrap">
-              <AdFive active = {this.state.slide5} next = {this.goNext}/>
-            </div>
-          </div>
+        </div>
+        <div className="Content-left" onClick={this.goPrev}>
+          <img ref="leftArrow" style={{left: '0px'}} src={require('./left.png')}></img>
+        </div>
+        <div className="Content-right" onClick={this.goNext}>
+          <img ref="rightArrow" style={{right: '0px'}} src={require('./right.png')}></img>
         </div>
       </div>
     )

@@ -46,7 +46,7 @@ class App extends Component {
 
   renderDesktop(){
     return !this.props.error? (
-      <div className="App-bg">
+      <div className="App-bg" style={{overflowY: 'hidden'}}>
         <HeaderDesktop />
         <Content />
         <FooterDesktop />
@@ -56,7 +56,7 @@ class App extends Component {
 
   renderMobile(){
     return !this.props.error? (
-      <div className="App-bg">
+      <div className="App-bg" style={{overflowY: 'hidden'}}>
         <HeaderMobile />
         <Content />
         <FooterMobile />

@@ -2,24 +2,31 @@ import React, { Component } from 'react';
 import withStyles from '../../decorators/withStyles';
 import styles from './Content.css';
 import SwipeView from '../mobile/SwipeView';
+import LoadingPage from '../LoadingPage';
 
 @withStyles(styles)
 class Content extends Component {
 
   state = {
+    viewWidth: 0,
+    viewHeight: 0,
     isActive: false,
   }
 
   componentDidMount() {
     //set the title
     document.title = 'China Promotion Page';
+
     //get the current window's width and height to switch mobile/ desktop view
     this.setState({
+      viewWidth: window.innerWidth,
+      viewHeight: window.innerHeight,
       isActive: true
     });
   }
-  
+
   render(){
+    //decide to render mobile or desktop view
     if (this.state.viewWidth > 968){
       return this.renderDesktop();
     } else {
@@ -28,23 +35,20 @@ class Content extends Component {
   }
   renderDesktop() {
     return(
+      this.state.isActive?
       <div></div>
+      :
+      <LoadingPage />
     )
   }
   renderMobile() {
     return(
       this.state.isActive?
       <div className="Content">
-        <SwipeView />
-        <div className="Content-left" onClick={this.goPrev}>
-          <img ref="leftArrow" style={{left: '0px'}} src={require('./left.png')}></img>
-        </div>
-        <div className="Content-right" onClick={this.goNext}>
-          <img ref="rightArrow" style={{right: '0px'}} src={require('./right.png')}></img>
-        </div>
+        <SwipeView viewWidth = {this.state.viewWidth} viewHeight = {this.state.viewHeight}/>
       </div>
       :
-      <h1>Loading</h1>
+      <LoadingPage />
     )
   }
 }

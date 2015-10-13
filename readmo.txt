@@ -1,0 +1,4 @@
+Server IP: 54.199.176.78
+Domain : neil.pagamo.com.tw
+
+Login: ssh -i $YOUR_PEM_PATH root@54.199.176.78

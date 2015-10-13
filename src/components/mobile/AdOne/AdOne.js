@@ -72,8 +72,8 @@ class AdOne extends Component{
           <h3>中国学生定制版</h3>
         </div>
         <div className="view">
-          <img ref="land" onClick={this.handleClick} style={styles.land} src={require('../../Content/land-08.png')}></img>
-          <img ref="mark" onClick={this.handleClick} style={styles.mark} src={require('../../Content/mark-08.png')}></img>
+          <img ref="land" onClick={this.handleClick} style={styles.land} src={require('./land-08.png')}></img>
+          <img ref="mark" onClick={this.handleClick} style={styles.mark} src={require('./mark-08.png')}></img>
         </div>
       </div>
     )
