@@ -30,17 +30,11 @@ class App extends Component {
     viewport: 0,
   }
 
-  componentWillMount() {
-    this.setState({
-      viewport: 0,
-    });
-  }
   componentDidMount() {
     window.addEventListener('resize', ()=>{
       this.setState({
         viewport: window.innerWidth,
       });
-      console.log(this.state.viewport);
     });
   }
 
@@ -50,12 +44,14 @@ class App extends Component {
     } else {
       return this.renderDesktop();
     }
+    return false;
   }
 
   renderDesktop(){
     return(
       <div className="App-bg">
         <HeaderDesktop />
+        <h1>Desktop</h1>
         <Content />
         <FooterDesktop />
       </div>
