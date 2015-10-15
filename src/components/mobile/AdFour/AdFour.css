@@ -1,0 +1,15 @@
+.AdFour{
+  .practice-header{
+    margin-top: 10%;
+  }
+  .practice-container{
+    transition: all 1.5s;
+    -webkit-transition:  all 1.5s;
+    -moz-transition: all 1.5s;
+    -ms-transition: all 1.5s;
+    -o-transition: all 1.5s;
+  }
+  .practice{
+    width: 70%;
+  }
+}

@@ -14,9 +14,6 @@ class Content extends Component {
   }
 
   componentDidMount() {
-    //set the title
-    document.title = 'China Promotion Page';
-
     //get the current window's width and height to switch mobile/ desktop view
     this.setState({
       viewWidth: window.innerWidth,
@@ -45,7 +42,7 @@ class Content extends Component {
     return(
       this.state.isActive?
       <div className="Content">
-        <SwipeView viewWidth = {this.state.viewWidth} viewHeight = {this.state.viewHeight}/>
+        <SwipeView version = {this.props.version} viewWidth = {this.state.viewWidth} viewHeight = {this.state.viewHeight}/>
       </div>
       :
       <LoadingPage />

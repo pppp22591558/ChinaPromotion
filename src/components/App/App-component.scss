@@ -1,4 +1,6 @@
 .App-bg{
   height: 100vh;
   overflow-y: hidden;
+  -webkit-overflow-y: hidden;
+  position: relative;
 }

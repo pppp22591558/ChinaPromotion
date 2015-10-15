@@ -18,7 +18,7 @@ import Content from '../Content';
 class App extends Component {
 
   static propTypes = {
-    children: PropTypes.element.isRequired,
+    children: PropTypes.element,
     error: PropTypes.object,
     viewport: PropTypes.shape({
       width: PropTypes.number.isRequired,
@@ -27,41 +27,47 @@ class App extends Component {
   }
 
   state = {
-    viewport: 0
+    viewport: 0,
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.setState({
-      viewport: window.innerWidth
+      viewport: 0,
+    });
+  }
+  componentDidMount() {
+    window.addEventListener('resize', ()=>{
+      this.setState({
+        viewport: window.innerWidth,
+      });
+      console.log(this.state.viewport);
     });
   }
 
   render() {
-    if (this.state.viewport > 968) {
-      return this.renderDesktop();
-    } else {
+    if (this.state.viewport < 968) {
       return this.renderMobile();
+    } else {
+      return this.renderDesktop();
     }
   }
 
   renderDesktop(){
-    return !this.props.error? (
-      <div className="App-bg" style={{overflowY: 'hidden'}}>
+    return(
+      <div className="App-bg">
         <HeaderDesktop />
         <Content />
         <FooterDesktop />
       </div>
-    ) : this.props.children
+    )
   }
 
   renderMobile(){
-    return !this.props.error? (
-      <div className="App-bg" style={{overflowY: 'hidden'}}>
-        <HeaderMobile />
-        <Content />
-        <FooterMobile />
+    return(
+      <div className="App-bg">
+        <Content version = {this.props.version} />
       </div>
-    ) : this.props.children
+    )
   }
 
 }

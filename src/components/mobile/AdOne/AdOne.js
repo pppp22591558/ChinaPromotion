@@ -10,6 +10,8 @@ class AdOne extends Component{
   constructor(){
     super();
     this.handleClick = this.handleClick.bind(this);
+    this.addScale = this.addScale.bind(this);
+    this.removeScale = this.removeScale.bind(this);
   }
 
   static propTypes = {
@@ -19,22 +21,35 @@ class AdOne extends Component{
   componentWillUpdate(nextProps, nextState) {
     if (nextProps.active) {
       TweenMax.fromTo(this.header, 0.4, {top: -40, color: '#69D6D8'}, {top: 0, color: 'white'});
+      this.tl.to(this.icon1, 0.2, {WebkitTransform: 'translateY(0%)'})
+             .to(this.icon2, 0.2, {WebkitTransform: 'translateY(0%)'})
+             .to(this.icon3, 0.2, {WebkitTransform: 'translateY(0%)'});
     } else {
       TweenMax.fromTo(this.header, 0.4, {top: -40, color: '#69D6D8'}, {top: 0, color: 'white', reversed: true});
+      this.tl.to(this.icon1, 0, {WebkitTransform: 'translateY(300%)'})
+             .to(this.icon2, 0, {WebkitTransform: 'translateY(300%)'})
+             .to(this.icon3, 0, {WebkitTransform: 'translateY(300%)'});
     }
   }
   componentDidMount() {
     const land = reactDOM.findDOMNode(this.refs.land);
     const mark = reactDOM.findDOMNode(this.refs.mark);
-    const markShadow = reactDOM.findDOMNode(this.refs.markShadow);
     this.header = reactDOM.findDOMNode(this.refs.header);
-    TweenMax.to(mark, 0.5, {top: '45%' ,yoyo: true, repeat: -1});
-    // TweenMax.to(markShadow, 0.5, {left: '53%', width:'7%', yoyo: true, repeat: -1});
+    this.icon1 = reactDOM.findDOMNode(this.refs.icon1);
+    this.icon2 = reactDOM.findDOMNode(this.refs.icon2);
+    this.icon3 = reactDOM.findDOMNode(this.refs.icon3);
+    TweenMax.to(mark, 0.5, {top: '34%' ,yoyo: true, repeat: -1});
+    this.tl = new TimelineMax();
   }
   handleClick(){
     this.props.next();
   }
-
+  addScale(e){
+    TweenMax.to(e.target, 0, {WebkitTransform: 'scale(1.2)'});
+  }
+  removeScale(e){
+    TweenMax.to(e.target, 0, {WebkitTransform: 'scale(1)'});
+  }
   render(){
     let styles = {
       header: {
@@ -50,21 +65,13 @@ class AdOne extends Component{
         zIndex: 1,
         position: 'absolute',
         display: 'block',
-        top: '50%',
+        top: '40%',
         left: '45%'
-      },
-      // markShadow: {
-      //   width: '10%',
-      //   zIndex: 0,
-      //   position: 'absolute',
-      //   display: 'block',
-      //   top: '61%',
-      //   left: '52%'
-      // }
+      }
     };
 
     return(
-      <div>
+      <div className="AdOne">
         <div className="AdOne-header" ref="header" style={styles.header}>
           <img className="palm palm-left" src={require('./palm-left.png')}></img>
           <img className="palm palm-right" src={require('./palm-right.png')}></img>
@@ -74,10 +81,14 @@ class AdOne extends Component{
         <div className="view">
           <img ref="land" onClick={this.handleClick} style={styles.land} src={require('./land-08.png')}></img>
           <img ref="mark" onClick={this.handleClick} style={styles.mark} src={require('./mark-08.png')}></img>
+          <div className="download">
+            <img ref="icon1" onTouchStart={this.addScale} onTouchEnd={this.removeScale} src={require('./apple.png')}></img>
+            <img ref="icon2" onTouchStart={this.addScale} onTouchEnd={this.removeScale} src={require('./android.png')}></img>
+            <img ref="icon3" onTouchStart={this.addScale} onTouchEnd={this.removeScale} src={require('./official.png')}></img>
+          </div>
         </div>
       </div>
     )
-    // <img ref="markShadow" style={styles.markShadow} src={require('../../Content/mark-shadow-08.png')}></img>
   }
 }
 

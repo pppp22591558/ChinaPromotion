@@ -1,0 +1,18 @@
+.AdFive{
+  .demo{
+    position: absolute;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+    width: 40%;
+    transition: 0.5s translateX linear, 0.2s scale;
+    -webkit-transition: 0.5s translateX linear, 0.2s scale;
+    -moz-transition: 0.5s translateX linear, 0.2s scale;
+    -ms-transition: 0.5s translateX linear, 0.2s scale;
+    -o-transition: 0.5s translateX linear, 0.2s scale;
+    margin-top: 5%;
+    img{
+      width: 100%;
+    }
+  }
+}

@@ -41,6 +41,10 @@ body{
   text-shadow: none;
 }
 
+::-webkit-scrollbar {
+    display: none; 
+}
+
 /*
  * A better looking default horizontal rule
  */
@@ -159,6 +163,7 @@ textarea {
 
   img {
     max-width: 100% !important;
+    overflow-y: hidden;
   }
 
   p,

@@ -10,14 +10,15 @@ import LoginPage from './components/LoginPage';
 import NotFoundPage from './components/mobile/NotFoundPage';
 import ErrorPage from './components/mobile/ErrorPage';
 import SignupPage from './components/SignupPage';
+import Content from './components/Content';
 
 const router = new Router(on => {
-  on('*', async (state, next) => {
-    const component = await next();
-    return component && <App context={state.context}>{component}</App>;
-  });
+  // on('*', async (state, next) => {
+  //   const component = await next();
+  //   return component && <App context={state.context}>{component}</App>;
+  // });
 
-  on('/signup', async () => <SignupPage />)
+  on('/signup', async () => <SignupPage />);
 
   on('/contact', async () => <ContactPage />);
 
@@ -25,7 +26,11 @@ const router = new Router(on => {
 
   on('/register', async () => <RegisterPage />);
 
-  on('/', async () => <SignupPage />);
+  on('/:version', async(state) => {
+    let version = parseInt(state.params.version) || 1;
+    state.context.onSetTitle('China Promotion');
+    return <App context={state.context} version={version}/>
+  });
 
   // on('*', async (state) => {
   //   const content = await http.get(`/api/content?path=${state.path}`);

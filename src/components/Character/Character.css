@@ -1,0 +1,40 @@
+.Character{
+  img{
+    width: 40%;
+    position: absolute;
+    bottom: 1em;
+    right: 0;
+    transition: 0.6s all;
+    -webkit-transition: 0.6s all;
+    -o-transition: 0.6s all;
+    -ms-transition: 0.6s all;
+    -moz-transition: 0.6s all;
+    z-index: 100;
+  }
+  .bubble{
+    z-index: 100;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 20%;
+    right: 40%;
+    padding: 0 8px 0 8px;
+    transition: 0.7s all ease-in-out;
+    -webkit-transition: 0.7s all ease-in-out;
+    -o-transition: 0.7s all ease-in-out;
+    -ms-transition: 0.7s all ease-in-out;
+    -moz-transition: 0.7s all ease-in-out;
+    &:before{
+      content: '';
+      width: 0;
+      height: 0;
+      border-bottom: 16px solid transparent;
+    	border-top: 16px solid transparent;
+    	border-left: 16px solid white;
+      position: absolute;
+      right: -8px;
+      top:25%;
+    }
+  }
+}

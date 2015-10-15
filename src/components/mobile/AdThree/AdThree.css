@@ -19,5 +19,22 @@
       line-height: 38px;
       width: 100%;
     }
+    h5{
+      span.ranking{
+        position: relative;
+        float: left;
+        left: 7.5%;
+      }
+    }
+    h5 span.name{
+      position: relative;
+      left: 1em;
+    }
+    h5 span.points{
+      position: relative;
+      right: 2em;
+      float: right;
+      color: #FFF2B5;
+    }
   }
 }
