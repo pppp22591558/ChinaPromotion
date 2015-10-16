@@ -1,0 +1,6 @@
+{
+  "name": "Modal",
+  "main": "./Modal.js",
+  "private": true,
+  "version": "0.0.0"
+}

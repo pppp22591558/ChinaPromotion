@@ -3,6 +3,7 @@ import TweenMax from '../../../vendor/gsap';
 import reactDOM from 'react-dom';
 import styles from './AdOne.css';
 import withStyles from '../../../decorators/withStyles';
+import Modal from '../Modal';
 
 @withStyles(styles)
 
@@ -12,10 +13,22 @@ class AdOne extends Component{
     this.handleClick = this.handleClick.bind(this);
     this.addScale = this.addScale.bind(this);
     this.removeScale = this.removeScale.bind(this);
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
   }
 
   static propTypes = {
     next: React.PropTypes.func.isRequired
+  }
+
+  state = {
+    isModalActive: false
+  }
+
+  componentWillReceiveProps(newProps){
+    if (!newProps.active){
+      this.setState({isModalActive: false});
+    }
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -50,6 +63,14 @@ class AdOne extends Component{
   removeScale(e){
     TweenMax.to(e.target, 0, {WebkitTransform: 'scale(1)'});
   }
+  showModal(){
+    this.setState({isModalActive: true});
+  }
+
+  hideModal(){
+    this.setState({isModalActive: false});
+  }
+
   render(){
     let styles = {
       header: {
@@ -82,11 +103,12 @@ class AdOne extends Component{
           <img ref="land" onClick={this.handleClick} style={styles.land} src={require('./land-08.png')}></img>
           <img ref="mark" onClick={this.handleClick} style={styles.mark} src={require('./mark-08.png')}></img>
           <div className="download">
-            <img ref="icon1" onTouchStart={this.addScale} onTouchEnd={this.removeScale} src={require('./apple.png')}></img>
-            <img ref="icon2" onTouchStart={this.addScale} onTouchEnd={this.removeScale} src={require('./android.png')}></img>
-            <img ref="icon3" onTouchStart={this.addScale} onTouchEnd={this.removeScale} src={require('./official.png')}></img>
+            <img ref="icon1" onTouchStart={this.addScale} onTouchEnd={this.removeScale} onClick={this.showModal} src={require('./apple.png')}></img>
+            <img ref="icon2" onTouchStart={this.addScale} onTouchEnd={this.removeScale} onClick={this.showModal} src={require('./android.png')}></img>
+            <img ref="icon3" onTouchStart={this.addScale} onTouchEnd={this.removeScale} onClick={this.showModal} src={require('./official.png')}></img>
           </div>
         </div>
+        <Modal active = {this.state.isModalActive} hide = {this.hideModal} />
       </div>
     )
   }
