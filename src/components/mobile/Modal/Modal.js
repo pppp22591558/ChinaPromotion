@@ -15,13 +15,10 @@ class Modal extends Component {
   }
   componentWillUpdate(nextProps, nextState) {
     if (nextProps.active) {
-      TweenMax.to(this.modal, 2, {top: '0%', ease: Elastic.easeOut.config(1, 0.75), force3D: true});
+      TweenMax.to(this.refs.modal, 2, {top: '0%', ease: Elastic.easeOut.config(1, 0.75), force3D: true});
     } else {
-      TweenMax.to(this.modal, 0.5, {top: '200%', ease: Power1.easeIn, force3D: true});
+      TweenMax.to(this.refs.modal, 0.5, {top: '200%', ease: Power1.easeIn, force3D: true});
     }
-  }
-  componentDidMount() {
-    this.modal = reactDOM.findDOMNode(this.refs.modal);
   }
   handleTouchStart(){
     this.renderCss('.Modal a {background: #CC4B4B}');
