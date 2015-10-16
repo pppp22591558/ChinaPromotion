@@ -39,7 +39,7 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.viewport < 968) {
+    if (this.state.viewport < 768) {
       return this.renderMobile();
     } else {
       return this.renderDesktop();

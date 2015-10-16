@@ -24,7 +24,7 @@ class Content extends Component {
 
   render(){
     //decide to render mobile or desktop view
-    if (this.state.viewWidth > 968){
+    if (this.state.viewWidth > 768){
       return this.renderDesktop();
     } else {
       return this.renderMobile();
