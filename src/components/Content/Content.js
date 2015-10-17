@@ -13,7 +13,14 @@ class Content extends Component {
     isActive: false,
   }
 
-  componentWillUpdate() {
+  componentWillUnmount() {
+    console.log('unmount');
+    this.setState({
+      isActive: false
+    });
+  }
+
+  componentDidMount() {
     //get the current window's width and height to switch mobile/ desktop view
     this.setState({
       viewWidth: window.innerWidth,
@@ -23,22 +30,6 @@ class Content extends Component {
   }
 
   render(){
-    //decide to render mobile or desktop view
-    if (this.state.viewWidth > 768){
-      return this.renderDesktop();
-    } else {
-      return this.renderMobile();
-    }
-  }
-  renderDesktop() {
-    return(
-      this.state.isActive?
-      <div></div>
-      :
-      <LoadingPage />
-    )
-  }
-  renderMobile() {
     return(
       this.state.isActive?
       <div className="Content">
@@ -47,7 +38,31 @@ class Content extends Component {
       :
       <LoadingPage />
     )
+    //decide to render mobile or desktop view
+    // if (this.state.viewWidth > 768){
+    //   return this.renderDesktop();
+    // } else {
+    //   return this.renderMobile();
+    // }
   }
+  // renderDesktop() {
+  //   return(
+  //     this.state.isActive?
+  //     <div></div>
+  //     :
+  //     <LoadingPage />
+  //   )
+  // }
+  // renderMobile() {
+  //   return(
+  //     this.state.isActive?
+  //     <div className="Content">
+  //       <SwipeView version = {this.props.version} viewWidth = {this.state.viewWidth} viewHeight = {this.state.viewHeight}/>
+  //     </div>
+  //     :
+  //     <LoadingPage />
+  //   )
+  // }
 }
 
 export default Content;
