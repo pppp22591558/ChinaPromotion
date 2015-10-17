@@ -13,7 +13,7 @@ class Content extends Component {
     isActive: false,
   }
 
-  componentDidMount() {
+  componentWillUpdate() {
     //get the current window's width and height to switch mobile/ desktop view
     this.setState({
       viewWidth: window.innerWidth,

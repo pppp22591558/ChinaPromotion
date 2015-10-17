@@ -13,10 +13,10 @@ import SignupPage from './components/SignupPage';
 import Content from './components/Content';
 
 const router = new Router(on => {
-  // on('*', async (state, next) => {
-  //   const component = await next();
-  //   return component && <App context={state.context}>{component}</App>;
-  // });
+  on('*', async (state, next) => {
+    const component = await next();
+    return component && <App context={state.context}>{component}</App>;
+  });
 
   on('/signup', async () => <SignupPage />);
 

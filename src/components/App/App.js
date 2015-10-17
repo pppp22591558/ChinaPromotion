@@ -17,20 +17,14 @@ import Content from '../Content';
 
 class App extends Component {
 
-  static propTypes = {
-    children: PropTypes.element,
-    error: PropTypes.object,
-    viewport: PropTypes.shape({
-      width: PropTypes.number.isRequired,
-      height: PropTypes.number.isRequired
-    }).isRequired,
-  }
-
   state = {
     viewport: 0,
   }
 
   componentDidMount() {
+    this.setState({
+      viewport: window.innerWidth,
+    });
     window.addEventListener('resize', ()=>{
       this.setState({
         viewport: window.innerWidth,
