@@ -39,32 +39,37 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.viewport < 768) {
-      return this.renderMobile();
-    } else {
-      return this.renderDesktop();
-    }
-    return false;
-  }
-
-  renderDesktop(){
-    return(
-      <div className="App-bg">
-        <HeaderDesktop />
-        <h1>Desktop</h1>
-        <Content />
-        <FooterDesktop />
-      </div>
-    )
-  }
-
-  renderMobile(){
     return(
       <div className="App-bg">
         <Content version = {this.props.version} />
       </div>
     )
+    // if (this.state.viewport < 768) {
+    //   return this.renderMobile();
+    // } else {
+    //   return this.renderDesktop();
+    // }
+    // return false;
   }
+
+  // renderDesktop(){
+  //   return(
+  //     <div className="App-bg">
+  //       <HeaderDesktop />
+  //       <h1>Desktop</h1>
+  //       <Content />
+  //       <FooterDesktop />
+  //     </div>
+  //   )
+  // }
+
+  // renderMobile(){
+  //   return(
+  //     <div className="App-bg">
+  //       <Content version = {this.props.version} />
+  //     </div>
+  //   )
+  // }
 
 }
 
