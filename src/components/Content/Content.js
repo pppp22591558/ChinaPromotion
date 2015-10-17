@@ -33,7 +33,7 @@ class Content extends Component {
     return(
       this.state.isActive?
       <div className="Content">
-        <SwipeView version = {this.props.version} viewWidth = {this.state.viewWidth} viewHeight = {this.state.viewHeight}/>
+        <SwipeView version = {this.props.version}/>
       </div>
       :
       <LoadingPage />
