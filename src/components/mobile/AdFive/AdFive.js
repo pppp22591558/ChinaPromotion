@@ -3,6 +3,7 @@ import TweenMax from '../../../vendor/gsap';
 import reactDOM from 'react-dom';
 import styles from './AdFive.css';
 import withStyles from '../../../decorators/withStyles';
+import { get as getLine } from '../../../constants/ABTest';
 
 @withStyles(styles)
 class AdFive extends Component{
@@ -48,12 +49,14 @@ class AdFive extends Component{
         color: '#555555',
       },
     };
+    let header = getLine(this.props.version).scene5.header;
+    let subtitle = getLine(this.props.version).scene5.subtitle;
 
     return(
       <div className="AdFive">
         <div className="header" ref="header" style={styles.header}>
-          <h1>爹娘想刷存在感?</h1>
-          <h2>战绩随时报给你</h2>
+          <h1>{header}</h1>
+          <h2>{subtitle}</h2>
         </div>
         <div className="view">
           <div className="demo-img" onClick={this.handleClick}>

@@ -3,6 +3,7 @@ import TweenMax from '../../../vendor/gsap';
 import reactDOM from 'react-dom';
 import styles from './AdTwo.css';
 import withStyles from '../../../decorators/withStyles';
+import { get as getLine } from '../../../constants/ABTest';
 
 @withStyles(styles)
 class AdTwo extends Component{
@@ -35,31 +36,15 @@ class AdTwo extends Component{
         marginBottom: '0.3em'
       }
     };
-
-    let text = (version) => {
-      switch (version) {
-        case 2:
-          return(
-            <div>
-              <h1>答題攻地</h1>
-              <h2>邊玩邊學戰勝題海</h2>
-            </div>
-          );
-          break;
-        default:
-          return(
-            <div>
-              <h1>题海战术太无聊？</h1>
-              <h2>答题攻地更有趣</h2>
-            </div>
-          );
-      }
-    };
-
+    let header = getLine(this.props.version).scene2.header;
+    let subtitle = getLine(this.props.version).scene2.subtitle;
     return(
       <div>
         <div className="header" ref="header" style={styles.header}>
-          {text(this.props.version)}
+          <div>
+            <h1>{header}</h1>
+            <h2>{subtitle}</h2>
+          </div>
         </div>
         <div className="view">
           <img className="land-img lands" onClick={this.handleClick} src={require('./lands.png')}></img>

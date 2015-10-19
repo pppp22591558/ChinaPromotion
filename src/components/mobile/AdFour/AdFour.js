@@ -3,6 +3,7 @@ import TweenMax from '../../../vendor/gsap';
 import reactDOM from 'react-dom';
 import styles from './AdFour.css';
 import withStyles from '../../../decorators/withStyles';
+import { get as getLine } from '../../../constants/ABTest';
 
 @withStyles(styles)
 class AdFour extends Component{
@@ -33,31 +34,14 @@ class AdFour extends Component{
         color: 'white',
       },
     };
-
-    let text = (version) => {
-      switch (version) {
-        case 2:
-          return(
-            <div>
-              <h1>弱點探測</h1>
-              <h2>針對錯題考前衝刺</h2>
-            </div>
-          );
-          break;
-        default:
-          return(
-            <div>
-              <h1>考前时间不够用?</h1>
-              <h2>掌握弱点快复习</h2>
-            </div>
-          );
-      }
-    };
+    let header = getLine(this.props.version).scene4.header;
+    let subtitle = getLine(this.props.version).scene4.subtitle;
 
     return(
       <div className="AdFour">
         <div className="header" ref="header" style={styles.header}>
-          {text(this.props.version)}
+          <h1>{header}</h1>
+          <h2>{subtitle}</h2>
         </div>
         <div className="view">
           <div ref="practice" onClick={this.handleClick} className="practice-container">

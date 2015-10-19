@@ -3,6 +3,7 @@ import TweenMax from '../../../vendor/gsap';
 import reactDOM from 'react-dom';
 import styles from './AdThree.css';
 import withStyles from '../../../decorators/withStyles';
+import { get as getLine } from '../../../constants/ABTest';
 
 @withStyles(styles)
 class AdThree extends Component{
@@ -52,31 +53,14 @@ class AdThree extends Component{
         paddingTop: '50px'
       }
     };
-
-    let text = (version) => {
-      switch (version) {
-        case 2:
-          return(
-            <div>
-              <h1>統計分析</h1>
-              <h2>天天看到學習成效</h2>
-            </div>
-          );
-          break;
-        default:
-          return(
-            <div>
-              <h1>学习效果在哪里？</h1>
-              <h2>排名进步天天见</h2>
-            </div>
-          );
-      }
-    };
+    let header = getLine(this.props.version).scene3.header;
+    let subtitle = getLine(this.props.version).scene3.subtitle;
 
     return(
       <div>
         <div className="header" ref="header" style={styles.header}>
-          {text(this.props.version)}
+          <h1>{header}</h1>
+          <h2>{subtitle}</h2>
         </div>
         <div className="AdThree-view" onClick={this.handleClick}>
           <div ref="rank1" className="rank rank1">
