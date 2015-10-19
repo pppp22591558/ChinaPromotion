@@ -3,9 +3,9 @@ let lines = [
   {
     test_id: 1,
     scene1: {
-      header: "",
-      subtitle: "",
-      dialogue: ""
+      header_1: "2014沃顿商学院",
+      header_2: "全球教育创新总冠军",
+      subtitle: "中国学生定制版"
     },
     scene2: {
       header: "题海战术太无聊？",
@@ -31,23 +31,23 @@ let lines = [
   {
     test_id: 2,
     scene1: {
-      header: "",
-      subtitle: "",
-      dialogue: ""
+      header_1: "2014沃顿商学院",
+      header_2: "全球教育创新总冠军",
+      subtitle: "中国学生定制版"
     },
     scene2: {
-      header: "答題攻地",
-      subtitle: "邊玩邊學戰勝題海",
+      header: "答题攻地",
+      subtitle: "边玩边学战胜题海",
       dialogue: "哇擦，哥的地被占了!"
     },
     scene3: {
       header: "統計分析",
-      subtitle: "天天看到學習成效",
+      subtitle: "天天看到学习成效",
       dialogue: "学霸是我！"
     },
     scene4: {
-      header: "弱點探測",
-      subtitle: "針對錯題考前衝刺",
+      header: "弱点探测",
+      subtitle: "针对错题考前冲刺",
       dialogue: "放心，妥妥滴"
     },
     scene5: {
@@ -59,29 +59,57 @@ let lines = [
   {
     test_id: 3,
     scene1: {
-      header: "",
-      subtitle: "",
-      dialogue: ""
+      header_1: "2014華頓商學院",
+      header_2: "全球教育創新總冠軍",
+      subtitle: "台灣學生定製版"
     },
     scene2: {
       header: "答題攻地",
-      subtitle: "邊玩邊學戰勝題海",
-      dialogue: "哇擦，哥的地被占了!"
+      subtitle: "邊玩邊學戰勝考古題",
+      dialogue: ""
     },
     scene3: {
       header: "統計分析",
       subtitle: "天天看到學習成效",
-      dialogue: "学霸是我！"
+      dialogue: ""
     },
     scene4: {
-      header: "弱點探測",
+      header: "弱點分析",
       subtitle: "針對錯題考前衝刺",
-      dialogue: "放心，妥妥滴"
+      dialogue: ""
     },
     scene5: {
       header: "",
       subtitle: "",
-      dialogue: "成为我的小伙伴吧！"
+      dialogue: ""
+    }
+  },
+  {
+    test_id: 4,
+    scene1: {
+      header_1: "2014華頓商學院",
+      header_2: "全球教育創新總冠軍",
+      subtitle: "台灣學生定製版"
+    },
+    scene2: {
+      header: "答題攻地",
+      subtitle: "邊玩邊學戰勝考古題",
+      dialogue: ""
+    },
+    scene3: {
+      header: "統計分析",
+      subtitle: "天天看到學習成效",
+      dialogue: ""
+    },
+    scene4: {
+      header: "弱點分析",
+      subtitle: "針對錯題考前衝刺",
+      dialogue: ""
+    },
+    scene5: {
+      header: "",
+      subtitle: "",
+      dialogue: ""
     }
   }
 ];

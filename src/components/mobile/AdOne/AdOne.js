@@ -4,6 +4,7 @@ import reactDOM from 'react-dom';
 import styles from './AdOne.css';
 import withStyles from '../../../decorators/withStyles';
 import Modal from '../Modal';
+import { get as getContent } from '../../../constants/ABTest';
 
 @withStyles(styles)
 
@@ -91,13 +92,17 @@ class AdOne extends Component{
       }
     };
 
+    let header_1 = getContent(this.props.version).scene1.header_1;
+    let header_2 = getContent(this.props.version).scene1.header_2;
+    let subtitle = getContent(this.props.version).scene1.subtitle;
+
     return(
       <div className="AdOne">
         <div className="AdOne-header" ref="header" style={styles.header}>
           <img className="palm palm-left" src={require('./palm-left.png')}></img>
           <img className="palm palm-right" src={require('./palm-right.png')}></img>
-          <h2>2014沃顿商学院<br/>全球教育创新总冠军<br/></h2>
-          <h3>中国学生定制版</h3>
+          <h2>{header_1}<br/>{header_2}<br/></h2>
+          <h3>{subtitle}</h3>
         </div>
         <div className="view">
           <img ref="land" onClick={this.handleClick} style={styles.land} src={require('./land-08.png')}></img>

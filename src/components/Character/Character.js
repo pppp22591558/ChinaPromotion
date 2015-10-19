@@ -25,7 +25,6 @@ class Character extends Component {
     this.character = reactDOM.findDOMNode(this.refs.character);
     this.bubble = reactDOM.findDOMNode(this.refs.bubble);
     this.tl = new TimelineMax();
-    console.log(getLine(this.props.version).scene1.dialogue);
   }
   handleClick(e){
     e.preventDefault();
@@ -51,14 +50,21 @@ class Character extends Component {
         line = getLine(this.props.version).scene5.dialogue;
         break;
       default:
-
+    }
+    let styles = {
+      display: 'block'
+    };
+    let characterVersion = 1;
+    //if version 3 it will hide all the bubbles
+    if(this.props.version === 3 || this.props.version === 4) {
+      styles.display = 'none';
+      characterVersion = 2;
     }
     return(
       <div className="Character">
-        <img ref="character" onTouchStart={this.handleClick} onTouchEnd={this.handleTouchEnd} src={require('./IP_' + this.props.line + '.png')}></img>
-        <div ref="bubble" className="bubble">
+        <img ref="character" onTouchStart={this.handleClick} onTouchEnd={this.handleTouchEnd} src={require('./IP' + characterVersion + '_' + this.props.line +'.png')}></img>
+        <div style={styles} ref="bubble" className="bubble">
           <h4>{line}</h4>
-          <div></div>
         </div>
       </div>
     )

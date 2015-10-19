@@ -122,7 +122,7 @@ class SwipeView extends Component {
             </div>
           </div>
           {
-            this.props.version != 2?
+            this.props.version === 1?
             <div style={styles} className="ad ad5">
               <div className="ad-wrap">
                 <AdFive active = {this.state.slide5} {...props} />
