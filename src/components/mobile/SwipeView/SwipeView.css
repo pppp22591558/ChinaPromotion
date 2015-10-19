@@ -28,6 +28,7 @@
   left:0;
   right:0;
   margin:auto;
+  max-width: 420px;
 }
 
 .ad .ad-wrap:before{
