@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import reactDOM from 'react-dom';
 import withStyles from '../../../decorators/withStyles';
 import styles from './Modal.css';
-// import TweenMax from '../../../vendor/gsap';
 import GSAP from 'react-gsap-enhancer';
 
 function modalShow({target}){

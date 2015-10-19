@@ -3,6 +3,7 @@ import reactDOM from 'react-dom';
 import withStyles from '../../decorators/withStyles';
 import styles from './Character.css';
 import TweenMax from '../../vendor/gsap';
+import { get as getLine } from '../../constants/ABTest';
 
 @withStyles(styles)
 class Character extends Component {
@@ -24,7 +25,7 @@ class Character extends Component {
     this.character = reactDOM.findDOMNode(this.refs.character);
     this.bubble = reactDOM.findDOMNode(this.refs.bubble);
     this.tl = new TimelineMax();
-
+    console.log(getLine(this.props.version).scene1.dialogue);
   }
   handleClick(e){
     e.preventDefault();
@@ -38,16 +39,16 @@ class Character extends Component {
     let line;
     switch (this.props.line) {
       case 1:
-        line = "哇擦，哥的地被占了!"
+        line = getLine(this.props.version).scene2.dialogue;
         break;
       case 2:
-        line = "学霸是我！"
+        line = getLine(this.props.version).scene3.dialogue;
         break;
       case 3:
-        line = "放心，妥妥滴"
+        line = getLine(this.props.version).scene4.dialogue;
         break;
       case 4:
-        line = "成为我的小伙伴吧！"
+        line = getLine(this.props.version).scene5.dialogue;
         break;
       default:
 
