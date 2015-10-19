@@ -23,9 +23,7 @@ class SwipeView extends Component {
     slide2: false,
     slide3: false,
     slide4: false,
-    slide5: false,
-    viewWidth: 0,
-    viewHeight: 0,
+    slide5: false
   }
   componentDidMount() {
 
@@ -90,7 +88,7 @@ class SwipeView extends Component {
   render(){
     let styles = {
       // height: viewHeight,
-      width: this.state.viewWidth
+      width: '100%'
     };
 
     let slides = () => {
