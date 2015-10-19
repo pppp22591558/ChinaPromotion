@@ -111,7 +111,7 @@ class SwipeView extends Component {
           </div>
           <div style={styles} className="ad ad3">
             <div className="ad-wrap">
-              <AdThree active = {this.state.slide3} clientWidth = {this.state.viewWidth} {...props}/>
+              <AdThree active = {this.state.slide3} {...props}/>
               <Character active = {this.state.slide3} line = {2} {...props} />
             </div>
           </div>

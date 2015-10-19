@@ -38,8 +38,8 @@ class AdThree extends Component{
   }
   render(){
     let lineHeight;
-    if (this.props.clientWidth < 420 ){
-      lineHeight = this.props.clientWidth * 0.8 / 6.3;
+    if (window.innerWidth < 420 ){
+      lineHeight = window.innerWidth * 0.8 / 6.3;
     } else {
       lineHeight = 420 * 0.8 / 6.3;
     }
