@@ -37,13 +37,19 @@ class AdThree extends Component{
     this.props.next();
   }
   render(){
+    let lineHeight;
+    if (this.props.clientWidth < 420 ){
+      lineHeight = this.props.clientWidth * 0.8 / 6.3;
+    } else {
+      lineHeight = 420 * 0.8 / 6.3;
+    }
     let styles = {
       header: {
         position: 'relative',
         color: 'white',
       },
       text: {
-        lineHeight: this.props.clientWidth * 0.8 / 6.3 + 'px'
+        lineHeight: lineHeight + 'px'
       },
       bg: {
         background: 'url('+ require('./bg.jpg') + ')',

@@ -47,7 +47,12 @@ class Modal extends Component {
   render(){
     return(
       <div className="Modal" key="modal" onClick={this.hide} style={{top: '200%'}}>
-        <h4>感谢您对PaGamO的支持<br/>目前我们正在努力开发App</h4>
+        {
+          this.version > 2?
+          <h4>感谢您对PaGamO的支持<br/>目前我们正在努力开发App</h4>
+          :
+          <h4>感謝您對PaGamO的支持<br/>目前我們正在努力開發App</h4>
+        }
         <a onTouchStart={this.handleTouchStart} onTouchEnd={this.handleTouchEnd} onClick={this.handleClick} href="/">填問卷領獎品去！</a>
       </div>
     )

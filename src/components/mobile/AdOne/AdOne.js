@@ -113,7 +113,7 @@ class AdOne extends Component{
             <img ref="icon3" onTouchStart={this.addScale} onTouchEnd={this.removeScale} onClick={this.showModal} src={require('./official.png')}></img>
           </div>
         </div>
-        <Modal active = {this.state.isModalActive} hide = {this.hideModal} />
+        <Modal active = {this.state.isModalActive} hide = {this.hideModal} version = {this.props.version}/>
       </div>
     )
   }
