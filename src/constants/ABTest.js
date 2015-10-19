@@ -55,15 +55,54 @@ let lines = [
       subtitle: "",
       dialogue: "成为我的小伙伴吧！"
     }
+  },
+  {
+    test_id: 3,
+    scene1: {
+      header: "",
+      subtitle: "",
+      dialogue: ""
+    },
+    scene2: {
+      header: "答題攻地",
+      subtitle: "邊玩邊學戰勝題海",
+      dialogue: "哇擦，哥的地被占了!"
+    },
+    scene3: {
+      header: "統計分析",
+      subtitle: "天天看到學習成效",
+      dialogue: "学霸是我！"
+    },
+    scene4: {
+      header: "弱點探測",
+      subtitle: "針對錯題考前衝刺",
+      dialogue: "放心，妥妥滴"
+    },
+    scene5: {
+      header: "",
+      subtitle: "",
+      dialogue: "成为我的小伙伴吧！"
+    }
   }
 ];
 
 let ABTest = {
   get: (n) => {
-    if (n === 2){
-      return _.find(lines, { test_id: 2 });
-    } else {
-      return _.find(lines, { test_id: 1 });
+    switch (n) {
+      case 1:
+        return _.find(lines, {test_id: 1});
+        break;
+      case 2:
+        return _.find(lines, {test_id: 2});
+        break;
+      case 3:
+        return _.find(lines, {test_id: 3});
+        break;
+      case 4:
+        return _.find(lines, {test_id: 4});
+        break;
+      default:
+        return _.find(lines, {test_id: 1});
     }
   }
 }
