@@ -4,6 +4,7 @@ import withStyles from '../../../decorators/withStyles';
 import styles from './Modal.css';
 import GSAP from 'react-gsap-enhancer';
 import Link from '../../Link';
+import _ from 'lodash';
 
 function modalShow({target}){
   var modal = target;
@@ -45,7 +46,7 @@ class Modal extends Component {
     return(
       <div className="Modal" key="modal" onClick={this.hide} style={{top: '200%'}}>
         {
-          this.version > 2?
+          _.includes([1, 2, 5, 6], this.props.version)?
           <h4>感谢您对PaGamO的支持<br/>目前我们正在努力开发App</h4>
           :
           <h4>感謝您對PaGamO的支持<br/>目前我們正在努力開發App</h4>
