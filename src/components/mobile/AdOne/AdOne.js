@@ -64,8 +64,16 @@ class AdOne extends Component{
   removeScale(e){
     TweenMax.to(e.target, 0, {WebkitTransform: 'scale(1)'});
   }
-  showModal(){
+  showModal(e){
     this.setState({isModalActive: true});
+    //send the download data to GA
+    let downloadType = e.target.getAttribute('data-download');
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'Download',
+      eventAction: 'click the icon',
+      eventLabel: downloadType
+    });
   }
 
   hideModal(){
@@ -108,9 +116,9 @@ class AdOne extends Component{
           <img ref="land" onClick={this.handleClick} style={styles.land} src={require('./land-08.png')}></img>
           <img ref="mark" onClick={this.handleClick} style={styles.mark} src={require('./mark-08.png')}></img>
           <div className="download">
-            <img ref="icon1" onTouchStart={this.addScale} onTouchEnd={this.removeScale} onClick={this.showModal} src={require('./apple.png')}></img>
-            <img ref="icon2" onTouchStart={this.addScale} onTouchEnd={this.removeScale} onClick={this.showModal} src={require('./android.png')}></img>
-            <img ref="icon3" onTouchStart={this.addScale} onTouchEnd={this.removeScale} onClick={this.showModal} src={require('./official.png')}></img>
+            <img ref="icon1" onTouchStart={this.addScale} onTouchEnd={this.removeScale} onClick={this.showModal} src={require('./apple.png')} data-download="ios"></img>
+            <img ref="icon2" onTouchStart={this.addScale} onTouchEnd={this.removeScale} onClick={this.showModal} src={require('./android.png')} data-download="android"></img>
+            <img ref="icon3" onTouchStart={this.addScale} onTouchEnd={this.removeScale} onClick={this.showModal} src={require('./official.png')} data-download="official"></img>
           </div>
         </div>
         <Modal active = {this.state.isModalActive} hide = {this.hideModal} version = {this.props.version}/>

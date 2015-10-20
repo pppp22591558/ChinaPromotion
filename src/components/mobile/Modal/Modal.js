@@ -3,6 +3,7 @@ import reactDOM from 'react-dom';
 import withStyles from '../../../decorators/withStyles';
 import styles from './Modal.css';
 import GSAP from 'react-gsap-enhancer';
+import Link from '../../Link';
 
 function modalShow({target}){
   var modal = target;
@@ -22,7 +23,6 @@ class Modal extends Component {
     super(props);
     this.handleTouchEnd = this.handleTouchEnd.bind(this);
     this.handleTouchStart = this.handleTouchStart.bind(this);
-    this.handleClick = this.handleClick.bind(this);
     this.hide = this.hide.bind(this);
   }
   componentWillReceiveProps(nextProps) {
@@ -38,9 +38,6 @@ class Modal extends Component {
   handleTouchEnd(){
     this.renderCss('.Modal a {background: #F76464}');
   }
-  handleClick(e){
-    e.preventDefault();
-  }
   hide(){
     this.props.hide();
   }
@@ -53,7 +50,11 @@ class Modal extends Component {
           :
           <h4>感謝您對PaGamO的支持<br/>目前我們正在努力開發App</h4>
         }
-        <a onTouchStart={this.handleTouchStart} onTouchEnd={this.handleTouchEnd} onClick={this.handleClick} href="/">填問卷領獎品去！</a>
+        <div onTouchStart={this.handleTouchStart} onTouchEnd={this.handleTouchEnd}>
+          <a href="http://goo.gl/forms/6buXUTi879" target="/blank">
+            填問卷領獎品去！
+          </a>
+        </div>
       </div>
     )
   }

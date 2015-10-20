@@ -62,6 +62,12 @@ class SwipeView extends Component {
               _.setState({slide5: true, slide1: false, slide4: false});
               break;
           }
+          ga('send', {
+            hitType: 'event',
+            eventCategory: 'Swipe',
+            eventAction: 'swipe a slide',
+            eventLabel: 'slide-' + index + 1
+          });
         },
         transitionEnd: function(index, elem) {
         }
