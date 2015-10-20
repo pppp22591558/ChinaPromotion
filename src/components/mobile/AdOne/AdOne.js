@@ -103,6 +103,12 @@ class AdOne extends Component{
     let header_1 = getContent(this.props.version).scene1.header_1;
     let header_2 = getContent(this.props.version).scene1.header_2;
     let subtitle = getContent(this.props.version).scene1.subtitle;
+    let img_type;
+    if (this.props.version === 3 || this.props.version === 4){
+      img_type = '_tw';
+    } else {
+      img_type = '';
+    }
 
     return(
       <div className="AdOne">
@@ -116,9 +122,9 @@ class AdOne extends Component{
           <img ref="land" onClick={this.handleClick} style={styles.land} src={require('./land-08.png')}></img>
           <img ref="mark" onClick={this.handleClick} style={styles.mark} src={require('./mark-08.png')}></img>
           <div className="download">
-            <img ref="icon1" onTouchStart={this.addScale} onTouchEnd={this.removeScale} onClick={this.showModal} src={require('./apple.png')} data-download="ios"></img>
-            <img ref="icon2" onTouchStart={this.addScale} onTouchEnd={this.removeScale} onClick={this.showModal} src={require('./android.png')} data-download="android"></img>
-            <img ref="icon3" onTouchStart={this.addScale} onTouchEnd={this.removeScale} onClick={this.showModal} src={require('./official.png')} data-download="official"></img>
+            <img ref="icon1" onTouchStart={this.addScale} onTouchEnd={this.removeScale} onClick={this.showModal} src={require('./apple' + img_type + '.png')} data-download="ios"></img>
+            <img ref="icon2" onTouchStart={this.addScale} onTouchEnd={this.removeScale} onClick={this.showModal} src={require('./android' + img_type + '.png')} data-download="android"></img>
+            <img ref="icon3" onTouchStart={this.addScale} onTouchEnd={this.removeScale} onClick={this.showModal} src={require('./official' + img_type +'.png')} data-download="official"></img>
           </div>
         </div>
         <Modal active = {this.state.isModalActive} hide = {this.hideModal} version = {this.props.version}/>

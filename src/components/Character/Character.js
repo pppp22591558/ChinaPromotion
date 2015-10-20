@@ -4,6 +4,7 @@ import withStyles from '../../decorators/withStyles';
 import styles from './Character.css';
 import TweenMax from '../../vendor/gsap';
 import { get as getLine } from '../../constants/ABTest';
+import _ from 'lodash';
 
 @withStyles(styles)
 class Character extends Component {
@@ -56,12 +57,11 @@ class Character extends Component {
     };
     let characterVersion = 1;
     //if version 3 it will hide all the bubbles
-    if(this.props.version === 3) {
+    if ( _.includes([1, 3, 4, 5], this.props.version)){
       styles.display = 'none';
+    }
+    if (_.includes([3, 5, 6], this.props.version)){
       characterVersion = 2;
-    } else if (this.props.version === 4) {
-      styles.display = 'none';
-      characterVersion = 1;
     }
     return(
       <div className="Character">

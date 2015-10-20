@@ -10,6 +10,7 @@ import Swipe from '../../../vendor/swipe';
 import TweenMax from '../../../vendor/gsap';
 import withStyles from '../../../decorators/withStyles';
 import styles from './SwipeView.css';
+import _ from 'lodash';
 
 @withStyles(styles)
 class SwipeView extends Component {
@@ -128,7 +129,7 @@ class SwipeView extends Component {
             </div>
           </div>
           {
-            this.props.version === 1?
+            _.includes([2, 6], this.props.version)?
             <div style={styles} className="ad ad5">
               <div className="ad-wrap">
                 <AdFive active = {this.state.slide5} {...props} />
