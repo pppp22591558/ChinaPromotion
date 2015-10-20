@@ -51,7 +51,7 @@ class Modal extends Component {
           <h4>感謝您對PaGamO的支持<br/>目前我們正在努力開發App</h4>
         }
         <div onTouchStart={this.handleTouchStart} onTouchEnd={this.handleTouchEnd}>
-          <a href="http://goo.gl/forms/6buXUTi879" target="/blank">
+          <a href="http://goo.gl/forms/uLMwmAv1Uc" target="/blank">
             填問卷領獎品去！
           </a>
         </div>
