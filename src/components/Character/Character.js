@@ -56,7 +56,10 @@ class Character extends Component {
     };
     let characterVersion = 1;
     //if version 3 it will hide all the bubbles
-    if(this.props.version === 3 || this.props.version === 4) {
+    if(this.props.version === 3) {
+      styles.display = 'none';
+      characterVersion = 1;
+    } else if (this.props.version === 4) {
       styles.display = 'none';
       characterVersion = 2;
     }
