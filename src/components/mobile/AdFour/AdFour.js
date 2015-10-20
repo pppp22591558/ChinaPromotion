@@ -36,6 +36,12 @@ class AdFour extends Component{
     };
     let header = getLine(this.props.version).scene4.header;
     let subtitle = getLine(this.props.version).scene4.subtitle;
+    let img_lan;
+    if (this.props.version < 2){
+      img_lan = '';
+    } else {
+      img_lan = '_tw';
+    }
 
     return(
       <div className="AdFour">
@@ -45,9 +51,9 @@ class AdFour extends Component{
         </div>
         <div className="view">
           <div ref="practice" onClick={this.handleClick} className="practice-container">
-            <img className="practice practice-header" src={require('./practice.png')}></img>
-            <img className="practice" src={require('./practice_f1.png')}></img>
-            <img className="practice" src={require('./practice_f2.png')}></img>
+            <img className="practice practice-header" src={require('./practice' + img_lan + '.png')}></img>
+            <img className="practice" src={require('./practice_f1' + img_lan + '.png')}></img>
+            <img className="practice" src={require('./practice_f2' + img_lan + '.png')}></img>
           </div>
         </div>
       </div>
