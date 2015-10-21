@@ -28,6 +28,30 @@ class Html extends Component {
     });
   }
 
+  //Google Analytics Content Experiment code
+  TEST_SETUP(){
+    return({
+      __html:`
+      function utmx_section(){}function utmx(){}(function(){var
+      k='110079493-0',d=document,l=d.location,c=d.cookie;
+      if(l.search.indexOf('utm_expid='+k)>0)return;
+      function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
+      indexOf(';',i);return escape(c.substring(i+n.length+1,j<0?c.
+      length:j))}}}var x=f('__utmx'),xx=f('__utmxx'),h=l.hash;d.write(
+      '<sc'+'ript src="'+'http'+(l.protocol=='https:'?'s://ssl':
+      '://www')+'.google-analytics.com/ga_exp.js?'+'utmxkey='+k+
+      '&utmx='+(x?x:'')+'&utmxx='+(xx?xx:'')+'&utmxtime='+new Date().
+      valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
+      '" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();`
+    });
+  }
+  TEST_SEND(){
+    return({
+      __html:`utmx('url','A/B');`
+    });
+  }
+
+
   render() {
     return (
       <html className="no-js" lang="">
@@ -41,6 +65,8 @@ class Html extends Component {
         <style id="css" dangerouslySetInnerHTML={{__html: this.props.css}} />
       </head>
       <body>
+        <script dangerouslySetInnerHTML={this.TEST_SETUP()} />
+        <script dangerouslySetInnerHTML={this.TEST_SEND()} />
         <div id="app" dangerouslySetInnerHTML={{__html: this.props.body}} />
         <script src="/app.js"></script>
         <script dangerouslySetInnerHTML={this.trackingCode()} />
