@@ -12,6 +12,8 @@ import webpack from 'webpack';
 import merge from 'lodash.merge';
 import precss from 'precss';
 
+console.log(process.argv);
+
 const DEBUG = !process.argv.includes('release');
 const VERBOSE = process.argv.includes('verbose');
 const WATCH = global.WATCH === undefined ? false : global.WATCH;

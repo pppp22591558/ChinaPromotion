@@ -7,7 +7,6 @@ import AdFour from '../AdFour';
 import AdFive from '../AdFive';
 import Character from '../../Character';
 import Swipe from '../../../vendor/swipe';
-import TweenMax from '../../../vendor/gsap';
 import withStyles from '../../../decorators/withStyles';
 import styles from './SwipeView.css';
 import _ from 'lodash';

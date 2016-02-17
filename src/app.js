@@ -6,6 +6,9 @@ import FastClick from 'fastclick';
 import Router from './routes';
 import Location from './core/Location';
 import { addEventListener, removeEventListener } from './utils/DOMUtils';
+import TweenMax from 'gsap'
+
+window.TweenMax = TweenMax
 
 let cssContainer = document.getElementById('css');
 const appContainer = document.getElementById('app');

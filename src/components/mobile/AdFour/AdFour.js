@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import TweenMax from '../../../vendor/gsap';
 import reactDOM from 'react-dom';
 import styles from './AdFour.css';
 import withStyles from '../../../decorators/withStyles';

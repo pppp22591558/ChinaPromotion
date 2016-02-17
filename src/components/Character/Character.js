@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import reactDOM from 'react-dom';
 import withStyles from '../../decorators/withStyles';
 import styles from './Character.css';
-import TweenMax from '../../vendor/gsap';
 import { get as getLine } from '../../constants/ABTest';
 import _ from 'lodash';
 
