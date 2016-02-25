@@ -22,7 +22,8 @@ class AdOne extends Component{
   }
 
   state = {
-    isModalActive: false
+    isModalActive: false,
+    modalType: ''
   }
 
   componentWillReceiveProps(newProps){
@@ -35,13 +36,11 @@ class AdOne extends Component{
     if (nextProps.active) {
       TweenMax.fromTo(this.header, 0.4, {top: -40, color: '#69D6D8'}, {top: 0, color: 'white'});
       this.tl.to(this.icon1, 0.2, {WebkitTransform: 'translateY(0%)'})
-             .to(this.icon2, 0.2, {WebkitTransform: 'translateY(0%)'})
-             .to(this.icon3, 0.2, {WebkitTransform: 'translateY(0%)'});
+             .to(this.icon2, 0.2, {WebkitTransform: 'translateY(0%)'});
     } else {
       TweenMax.fromTo(this.header, 0.4, {top: -40, color: '#69D6D8'}, {top: 0, color: 'white', reversed: true});
       this.tl.to(this.icon1, 0, {WebkitTransform: 'translateY(300%)'})
-             .to(this.icon2, 0, {WebkitTransform: 'translateY(300%)'})
-             .to(this.icon3, 0, {WebkitTransform: 'translateY(300%)'});
+             .to(this.icon2, 0, {WebkitTransform: 'translateY(300%)'});
     }
   }
   componentDidMount() {
@@ -50,7 +49,6 @@ class AdOne extends Component{
     this.header = reactDOM.findDOMNode(this.refs.header);
     this.icon1 = reactDOM.findDOMNode(this.refs.icon1);
     this.icon2 = reactDOM.findDOMNode(this.refs.icon2);
-    this.icon3 = reactDOM.findDOMNode(this.refs.icon3);
     TweenMax.to(mark, 0.5, {top: '34%' ,yoyo: true, repeat: -1});
     this.tl = new TimelineMax();
   }
@@ -64,9 +62,9 @@ class AdOne extends Component{
     TweenMax.to(e.target, 0, {WebkitTransform: 'scale(1)'});
   }
   showModal(e){
-    this.setState({isModalActive: true});
-    //send the download data to GA
     let downloadType = e.target.getAttribute('data-download');
+    this.setState({isModalActive: true, modalType: downloadType});
+    //send the download data to GA
     ga('send', {
       hitType: 'event',
       eventCategory: 'Download',
@@ -123,7 +121,6 @@ class AdOne extends Component{
           <div className="download">
             <img ref="icon1" onTouchStart={this.addScale} onTouchEnd={this.removeScale} onClick={this.showModal} src={require('./apple' + img_type + '.png')} data-download="ios"></img>
             <img ref="icon2" onTouchStart={this.addScale} onTouchEnd={this.removeScale} onClick={this.showModal} src={require('./android' + img_type + '.png')} data-download="android"></img>
-            <img ref="icon3" onTouchStart={this.addScale} onTouchEnd={this.removeScale} onClick={this.showModal} src={require('./official' + img_type +'.png')} data-download="official"></img>
           </div>
         </div>
         <Modal active = {this.state.isModalActive} hide = {this.hideModal} version = {this.props.version}/>
@@ -131,5 +128,7 @@ class AdOne extends Component{
     )
   }
 }
+
+// <img ref="icon3" onTouchStart={this.addScale} onTouchEnd={this.removeScale} onClick={this.showModal} src={require('./official' + img_type +'.png')} data-download="official"></img>
 
 export default AdOne;
