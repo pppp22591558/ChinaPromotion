@@ -54,14 +54,14 @@ class Character extends Component {
     let styles = {
       display: 'block'
     };
-    let characterVersion = 1;
+    let characterVersion = 2;
     //if version 3 it will hide all the bubbles
-    if ( _.includes([1, 3, 4, 5], this.props.version)){
-      styles.display = 'none';
-    }
-    if (_.includes([3, 5, 6], this.props.version)){
-      characterVersion = 2;
-    }
+    // if ( _.includes([1, 3, 4, 5], this.props.version)){
+    //   styles.display = 'none';
+    // }
+    // if (_.includes([3, 5, 6], this.props.version)){
+    //   characterVersion = 2;
+    // }
     return(
       <div className="Character">
         <img ref="character" onTouchStart={this.handleClick} onTouchEnd={this.handleTouchEnd} src={require('./IP' + characterVersion + '_' + this.props.line +'.png')}></img>
