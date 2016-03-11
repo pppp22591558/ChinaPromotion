@@ -124,10 +124,12 @@ class AdOne extends Component{
           <img ref="land" onClick={this.handleClick} style={styles.land} src={require('./land-08.png')}></img>
           <img ref="mark" onClick={this.handleClick} style={styles.mark} src={require('./mark-08.png')}></img>
           <div className="download">
-            <img ref="icon1" onTouchStart={this.addScale} onTouchEnd={this.removeScale} onClick={this.showModal} src={require('./apple' + img_type + '.png')} data-download="ios"></img>
+            <a href="https://appsto.re/cn/ixbvab.i">
+              <img ref="icon1" onTouchStart={this.addScale} onTouchEnd={this.removeScale} src={require('./apple' + img_type + '.png')} data-download="ios"></img>
+            </a>
             <a href="/download">
               <img ref="icon2" onTouchStart={this.addScale} onTouchEnd={this.removeScale} src={require('./android' + img_type + '.png')} data-download="android"></img>
-              </a>
+            </a>
           </div>
         </div>
         <Modal active = {this.state.isModalActive} hide = {this.hideModal} version = {this.props.version}/>
