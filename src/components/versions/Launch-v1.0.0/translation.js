@@ -3,17 +3,12 @@ const transcriptList = {
     header_1: '常春藤名校认证',
     header_2: '游戏化自主学习平台'
   },
-  ad_two: {
-    header_1: '123',
-    header_2: '456',
-    sub_title: '123456'
-  },
   dialog: {
-    slide_1: '123',
-    slide_2: '123',
-    slide_3: '123',
-    slide_4: '123',
-    slide_5: '123'
+    slide_1: '',
+    slide_2: '答题攻地战胜题海！',
+    slide_3: '哥是靠腦力吃飯哒！',
+    slide_4: '就用这题决胜负吧！',
+    slide_5: '学霸是我！'
   }
 }
 
