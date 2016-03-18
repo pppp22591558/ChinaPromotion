@@ -39,11 +39,11 @@ class AdOne extends Component {
         <div className="view">
           <img ref="land" src={require('./images/1_5.svg')} style={styles.land}></img>
           <div className="download">
-            <a href="https://appsto.re/cn/ixbvab.i" data-download="ios">
-              <img ref="icon1" src={require('./images/1_4.svg')} data-download="ios"></img>
+            <a href="https://appsto.re/cn/ixbvab.i" data-download="ios" data-link="true">
+              <img ref="icon1" src={require('./images/1_4.svg')} data-download="ios" data-link="true"></img>
             </a>
-            <a href="/download" data-download="android">
-              <img ref="icon2" src={require('./images/1_3.svg')} data-download="android"></img>
+            <a href="/download" data-download="android" data-link="true">
+              <img ref="icon2" src={require('./images/1_3.svg')} data-download="android" data-link="true"></img>
             </a>
           </div>
         </div>

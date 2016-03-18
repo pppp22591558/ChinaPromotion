@@ -30,7 +30,7 @@ class SwipeView extends Component {
     return array
   }
   nextSlide(e){
-    if (e.target.getAttribute('data-download')) return
+    if (e.target.getAttribute('data-link')) return
     else this.swipe.next()
   }
   prevSlide(){
@@ -49,12 +49,12 @@ class SwipeView extends Component {
         callback: (index, elem) => {
           //callback for every swipe
           this.setState({ slides: this.getSlideStates(index)})
-          // ga('send', {
-          //   hitType: 'event',
-          //   eventCategory: 'Swipe',
-          //   eventAction: 'swipe a slide',
-          //   eventLabel: 'slide-' + index + 1
-          // })
+          ga('send', {
+            hitType: 'event',
+            eventCategory: 'Swipe',
+            eventAction: 'swipe a slide',
+            eventLabel: 'slide-' + index + 1
+          })
         }
       }
     )

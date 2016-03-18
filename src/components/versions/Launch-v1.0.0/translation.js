@@ -4,7 +4,7 @@ const transcriptList = {
     header_2: '游戏化自主学习平台'
   },
   dialog: {
-    slide_1: '',
+    slide_1: '偏不下载，吐槽去',
     slide_2: '答题攻地战胜题海！',
     slide_3: '哥是靠腦力吃飯哒！',
     slide_4: '就用这题决胜负吧！',

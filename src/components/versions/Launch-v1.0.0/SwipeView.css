@@ -87,11 +87,12 @@
   transform: translate(50%, 50%) scale(0.8);
   transition: 1s cubic-bezier(.55,0,.1,1);
   &.dialog-1{
-    display: none;
+    transform: translate(50%, 50%) scale(0.8);
+    h3 {text-decoration: underline;}
   }
   &.active{
     opacity: 1;
-    transform: translate(-10%, -100%) scale(1);
+    transform: translate(-10%, -160%) scale(1);
   }
   h3{
     margin: 0;
