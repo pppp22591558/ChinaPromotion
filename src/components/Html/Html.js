@@ -63,10 +63,10 @@ class Html extends Component {
         <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=0" />
         <link rel="apple-touch-icon" href="apple-touch-icon.png" />
         <style id="css" dangerouslySetInnerHTML={{__html: this.props.css}} />
-      </head>
-      <body>
         <script dangerouslySetInnerHTML={this.TEST_SETUP()} />
         <script dangerouslySetInnerHTML={this.TEST_SEND()} />
+      </head>
+      <body>
         <div id="app" dangerouslySetInnerHTML={{__html: this.props.body}} />
         <script src="/app.js"></script>
         <script dangerouslySetInnerHTML={this.trackingCode()} />
