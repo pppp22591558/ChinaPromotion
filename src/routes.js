@@ -11,6 +11,7 @@ import NotFoundPage from './components/mobile/NotFoundPage';
 import ErrorPage from './components/mobile/ErrorPage';
 import SignupPage from './components/SignupPage';
 import Content from './components/Content';
+import FistLaunch from './components/versions/Launch-v1.0.0';
 
 const router = new Router(on => {
   // on('*', async (state, next) => {
@@ -18,13 +19,14 @@ const router = new Router(on => {
   //   return component && <App context={state.context}>{component}</App>;
   // });
 
-  on('/signup', async () => <SignupPage />);
+  /**
+   * Launch v 1.0.0 Promotion Page
+   */
 
-  on('/contact', async () => <ContactPage />);
-
-  on('/login', async () => <LoginPage />);
-
-  on('/register', async () => <RegisterPage />);
+  on('/launch-v1.0.0', async (state) => {
+    state.context.onSetTitle('China Promotion');
+    return <FistLaunch context={state.context}/>
+  });
 
   on('/:version', async(state) => {
     let version = parseInt(state.params.version) || 1;

@@ -124,10 +124,10 @@ class AdOne extends Component{
           <img ref="land" onClick={this.handleClick} style={styles.land} src={require('./land-08.png')}></img>
           <img ref="mark" onClick={this.handleClick} style={styles.mark} src={require('./mark-08.png')}></img>
           <div className="download">
-            <a href="https://appsto.re/cn/ixbvab.i">
+            <a href="https://appsto.re/cn/ixbvab.i" data-download="ios">
               <img ref="icon1" onTouchStart={this.addScale} onTouchEnd={this.removeScale} src={require('./apple' + img_type + '.png')} data-download="ios"></img>
             </a>
-            <a href="/download">
+            <a href="/download" data-download="android">
               <img ref="icon2" onTouchStart={this.addScale} onTouchEnd={this.removeScale} src={require('./android' + img_type + '.png')} data-download="android"></img>
             </a>
           </div>
