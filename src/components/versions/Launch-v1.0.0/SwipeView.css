@@ -1,0 +1,103 @@
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.swipe-wrap > div {
+  float:left;
+  width:100%;
+  position: relative;
+}
+
+.ad{
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+}
+
+.ad .ad-wrap{
+  position: relative;
+  text-align: center;
+  color: white;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  margin:auto;
+  max-width: 420px;
+}
+
+.ad1{
+  background-color: #6ED6D7;
+}
+
+.ad2{
+  background-color: #69D6D8;
+}
+
+.ad3{
+  background-color: #6ED6D7;
+}
+
+.ad4{
+  background-color: #47474C;
+}
+
+.ad5{
+  background-color: #3E2D21;
+}
+
+.Content-left, .Content-right{
+  position: absolute;
+  top: 50%;
+  width: 44px;
+  height: 44px;
+  img{
+    position: relative;
+    opacity: 0.4;
+    height: 32px;
+    margin-top: 6px;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.Content-left{
+  left: 0;
+}
+
+.Content-right{
+  right: 0;
+}
+
+/* Dialogs */
+.dialog{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  background-size: contain !important;
+  height: 68px;
+  padding: 20px;
+  background-repeat: no-repeat !important;
+  transform: translate(50%, 50%) scale(0.8);
+  transition: 1s cubic-bezier(.55,0,.1,1);
+  &.dialog-1{
+    display: none;
+  }
+  &.active{
+    opacity: 1;
+    transform: translate(-10%, -100%) scale(1);
+  }
+  h3{
+    margin: 0;
+    width: 200px;
+    color: white;
+    line-height: 60px;
+    text-align: center;
+  }
+}
