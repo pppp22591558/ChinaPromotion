@@ -37,7 +37,7 @@ class SwipeView extends Component {
     this.swipe.prev()
   }
   componentDidMount() {
-    this.setState({ screenHeight: window.innerHeight })
+    this.setState({ screenHeight: Math.min(window.innerHeight, 736) })
     this.swipe = Swipe(this.refs.swipe,
       {
         startSlide: 0,

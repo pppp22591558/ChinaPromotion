@@ -13,7 +13,7 @@ class AdOne extends Component {
     screenHeight: 0
   }
   componentDidMount() {
-    this.setState({ screenHeight: window.innerHeight })
+    this.setState({ screenHeight: Math.min(window.innerHeight, 736) })
   }
   render(){
     const styles = {
