@@ -15,6 +15,16 @@ class AdOne extends Component {
   componentDidMount() {
     this.setState({ screenHeight: Math.min(window.innerHeight, 736) })
   }
+  download(e){
+    let downloadType = e.target.getAttribute('data-download')
+    //send the download data to GA
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'Download',
+      eventAction: 'click the icon',
+      eventLabel: downloadType
+    })
+  }
   render(){
     const styles = {
       land: {
@@ -39,10 +49,10 @@ class AdOne extends Component {
         <div className="view">
           <img ref="land" src={require('./images/1_5.svg')} style={styles.land}></img>
           <div className="download">
-            <a href="https://appsto.re/cn/ixbvab.i" data-download="ios" data-link="true">
+            <a href="https://appsto.re/cn/ixbvab.i" data-download="ios" data-link="true" onClick={::this.download}>
               <img ref="icon1" src={require('./images/1_4.svg')} data-download="ios" data-link="true"></img>
             </a>
-            <a href="/download" data-download="android" data-link="true">
+            <a href="/download" data-download="android" data-link="true" onClick={::this.download}>
               <img ref="icon2" src={require('./images/1_3.svg')} data-download="android" data-link="true"></img>
             </a>
           </div>

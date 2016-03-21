@@ -27,11 +27,11 @@ class AdOne extends Component{
     modalType: ''
   }
 
-  componentWillReceiveProps(newProps){
-    if (!newProps.active){
-      this.setState({isModalActive: false});
-    }
-  }
+  // componentWillReceiveProps(newProps){
+  //   if (!newProps.active){
+  //     this.setState({isModalActive: false});
+  //   }
+  // }
 
   componentWillUpdate(nextProps, nextState) {
     if (nextProps.active) {
@@ -64,7 +64,7 @@ class AdOne extends Component{
   }
   showModal(e){
     let downloadType = e.target.getAttribute('data-download');
-    this.setState({isModalActive: true, modalType: downloadType});
+    // this.setState({isModalActive: true, modalType: downloadType});
     //send the download data to GA
     ga('send', {
       hitType: 'event',
@@ -125,10 +125,10 @@ class AdOne extends Component{
           <img ref="mark" onClick={this.handleClick} style={styles.mark} src={require('./mark-08.png')}></img>
           <div className="download">
             <a href="https://appsto.re/cn/ixbvab.i" data-download="ios">
-              <img ref="icon1" onTouchStart={this.addScale} onTouchEnd={this.removeScale} src={require('./apple' + img_type + '.png')} data-download="ios"></img>
+              <img ref="icon1" onTouchStart={this.addScale} onTouchEnd={this.removeScale} src={require('./apple' + img_type + '.png')} data-download="ios" onClick={this.showModal}></img>
             </a>
             <a href="/download" data-download="android">
-              <img ref="icon2" onTouchStart={this.addScale} onTouchEnd={this.removeScale} src={require('./android' + img_type + '.png')} data-download="android"></img>
+              <img ref="icon2" onTouchStart={this.addScale} onTouchEnd={this.removeScale} src={require('./android' + img_type + '.png')} data-download="android" onClick={this.showModal}></img>
             </a>
           </div>
         </div>
