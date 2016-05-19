@@ -24,8 +24,8 @@ server.get('/ios-download', (req, res) => {
 
 server.get('/download', (req, res, next) => {
   try {
-    let file = __dirname + '/public/PaGamO_v0.5.2_production.apk'
-    res.download(file, 'PaGamO_v0.5.2_production.apk');
+    let file = __dirname + '/public/PaGamO_v0.6.8_production.apk'
+    res.download(file, 'PaGamO_v0.6.8_production.apk');
   } catch (e) {
     next(e)
   }
