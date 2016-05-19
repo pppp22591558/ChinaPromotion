@@ -10,6 +10,7 @@ import Swipe from '../../../vendor/swipe';
 import withStyles from '../../../decorators/withStyles';
 import styles from './SwipeView.css';
 import _ from 'lodash';
+import MobileDetect from 'mobile-detect';
 
 @withStyles(styles)
 class SwipeView extends Component {
@@ -26,10 +27,15 @@ class SwipeView extends Component {
     slide5: false
   }
   componentDidMount() {
+    const ua = window.navigator.userAgent
+    const md = new MobileDetect(ua)
+    const isWx = !! ua.match(/MicroMessenger/i) == 'micromessenger'
 
     this.setState({
       viewWidth: window.innerWidth,
       viewHeight: window.innerHeight,
+      os: md.os(),
+      isWx: isWx
     })
 
     //create the swipe view container
@@ -106,7 +112,7 @@ class SwipeView extends Component {
         <div className='swipe-wrap'>
           <div style={styles} className="ad ad1">
             <div className="ad-wrap">
-              <AdOne active = {this.state.slide1} {...props} />
+              <AdOne os={this.state.os} active = {this.state.slide1} {...props} />
             </div>
           </div>
           <div style={styles} className="ad ad2">

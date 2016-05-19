@@ -18,9 +18,17 @@ server.use(express.static(path.join(__dirname, 'public')));
 // -----------------------------------------------------------------------------
 server.use('/api/content', require('./api/content'));
 
-server.get('/download', (req, res) => {
-  let file = __dirname + '/public/PaGamO_v0.5.2_production.apk'
-  res.download(file, 'PaGamO_v0.5.2_production.apk');
+server.get('/ios-download', (req, res) => {
+  res.redirect('https://itunes.apple.com/cn/app/pagamo-china/id1079252424')
+})
+
+server.get('/download', (req, res, next) => {
+  try {
+    let file = __dirname + '/public/PaGamO_v0.5.2_production.apk'
+    res.download(file, 'PaGamO_v0.5.2_production.apk');
+  } catch (e) {
+    next(e)
+  }
 });
 
 //
@@ -29,7 +37,7 @@ server.get('/download', (req, res) => {
 server.get('*', async (req, res, next) => {
   try {
     let statusCode = 200;
-    const data = { title: '', description: '', css: '', body: '' };
+    const data = { title: '', description: '', css: '', body: '', mobileDetection: '' };
     const css = [];
     const context = {
       onInsertCss: value => css.push(value),

@@ -15,7 +15,6 @@ class AdOne extends Component{
     this.removeScale = this.removeScale.bind(this);
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
-    this.downloadAndroid = this.downloadAndroid.bind(this);
   }
 
   static propTypes = {
@@ -24,14 +23,9 @@ class AdOne extends Component{
 
   state = {
     isModalActive: false,
-    modalType: ''
+    modalType: '',
+    os: null
   }
-
-  // componentWillReceiveProps(newProps){
-  //   if (!newProps.active){
-  //     this.setState({isModalActive: false});
-  //   }
-  // }
 
   componentWillUpdate(nextProps, nextState) {
     if (nextProps.active) {
@@ -62,8 +56,8 @@ class AdOne extends Component{
   removeScale(e){
     TweenMax.to(e.target, 0, {WebkitTransform: 'scale(1)'});
   }
-  showModal(e){
-    let downloadType = e.target.getAttribute('data-download');
+  showModal(type){
+    let downloadType = type;
     // this.setState({isModalActive: true, modalType: downloadType});
     //send the download data to GA
     ga('send', {
@@ -78,8 +72,12 @@ class AdOne extends Component{
     this.setState({isModalActive: false});
   }
 
-  downloadAndroid(){
+  onClickIos() {
+    // location.assign('https://appsto.re/cn/ixbvab.i')
+  }
 
+  onClickAndroid() {
+    console.log('android');
   }
 
   render(){
@@ -112,6 +110,9 @@ class AdOne extends Component{
       img_type = '';
     }
 
+    const { isModalActive } = this.state
+    const { os, isWx } = this.props
+
     return(
       <div className="AdOne">
         <div className="AdOne-header" ref="header" style={styles.header}>
@@ -124,15 +125,28 @@ class AdOne extends Component{
           <img ref="land" onClick={this.handleClick} style={styles.land} src={require('./land-08.png')}></img>
           <img ref="mark" onClick={this.handleClick} style={styles.mark} src={require('./mark-08.png')}></img>
           <div className="download">
-            <a href="https://appsto.re/cn/ixbvab.i" data-download="ios">
-              <img ref="icon1" onTouchStart={this.addScale} onTouchEnd={this.removeScale} src={require('./apple' + img_type + '.png')} data-download="ios" onClick={this.showModal}></img>
+            <a href="/ios-download"
+              className={`ios ${(os != 'AndroidOS') && 'active'}`}
+              target="_self"
+              data-download="ios"
+              onClick={::this.onClickIos}>
+              <img ref="icon1"
+                src={isWx?
+                  require('./ios_qr_code.png') :
+                  require('./apple' + img_type + '.png')}
+                data-download="ios"/>
             </a>
-            <a href="/download" data-download="android">
-              <img ref="icon2" onTouchStart={this.addScale} onTouchEnd={this.removeScale} src={require('./android' + img_type + '.png')} data-download="android" onClick={this.showModal}></img>
+            <a href="/download"
+              className={`android ${(os != 'iOS') && 'active'}`}
+              target="_self"
+              data-download="android">
+              <img ref="icon2"
+                src={isWx? '' : require('./android' + img_type + '.png')}
+                data-download="android"/>
             </a>
           </div>
         </div>
-        <Modal active = {this.state.isModalActive} hide = {this.hideModal} version = {this.props.version}/>
+        <Modal active = {isModalActive} hide = {this.hideModal} version = {this.props.version}/>
       </div>
     )
   }

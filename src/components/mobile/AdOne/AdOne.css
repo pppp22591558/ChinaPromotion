@@ -28,6 +28,13 @@
       right: 0;
       bottom: 15%;
 
+      a {
+        display: none;
+        &.active {
+          display: inline-block;
+        }
+      }
+
       img{
         width: 5em;
         display: inline-block;
