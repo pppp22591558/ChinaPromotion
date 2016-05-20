@@ -103,6 +103,7 @@ class AdOne extends Component{
     let header_1 = getContent(this.props.version).scene1.header_1;
     let header_2 = getContent(this.props.version).scene1.header_2;
     let subtitle = getContent(this.props.version).scene1.subtitle;
+    let long_press = getContent(this.props.version).scene1.long_press;
     let img_type;
     if (this.props.version === 3 || this.props.version === 4){
       img_type = '_tw';
@@ -111,7 +112,7 @@ class AdOne extends Component{
     }
 
     const { isModalActive } = this.state
-    const { os, isWx } = this.props
+    const { os, ua, isWx } = this.props
 
     return(
       <div className="AdOne">
@@ -127,7 +128,6 @@ class AdOne extends Component{
           <div className="download">
             <a href="/ios-download"
               className={`ios ${(os != 'AndroidOS') && 'active'}`}
-              target="_self"
               data-download="ios"
               onClick={::this.onClickIos}>
               <img ref="icon1"
@@ -135,14 +135,21 @@ class AdOne extends Component{
                   require('./ios_qr_code.png') :
                   require('./apple' + img_type + '.png')}
                 data-download="ios"/>
+                { isWx &&
+                  <span className="long-press">{long_press}</span>
+                }
             </a>
             <a href="/download"
               className={`android ${(os != 'iOS') && 'active'}`}
-              target="_self"
               data-download="android">
               <img ref="icon2"
-                src={isWx? '' : require('./android' + img_type + '.png')}
+                src={isWx?
+                  require('./android_qr_code.png') :
+                  require('./android' + img_type + '.png')}
                 data-download="android"/>
+                { isWx &&
+                  <span className="long-press">{long_press}</span>
+                }
             </a>
           </div>
         </div>

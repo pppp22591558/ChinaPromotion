@@ -29,12 +29,13 @@ class SwipeView extends Component {
   componentDidMount() {
     const ua = window.navigator.userAgent
     const md = new MobileDetect(ua)
-    const isWx = !! ua.match(/MicroMessenger/i) == 'micromessenger'
+    const isWx = !! ua.toLowerCase().match(/micromessenger/i)
 
     this.setState({
       viewWidth: window.innerWidth,
       viewHeight: window.innerHeight,
       os: md.os(),
+      ua: ua,
       isWx: isWx
     })
 
@@ -112,7 +113,7 @@ class SwipeView extends Component {
         <div className='swipe-wrap'>
           <div style={styles} className="ad ad1">
             <div className="ad-wrap">
-              <AdOne os={this.state.os} active = {this.state.slide1} {...props} />
+              <AdOne {...this.state} active = {this.state.slide1} {...props} />
             </div>
           </div>
           <div style={styles} className="ad ad2">

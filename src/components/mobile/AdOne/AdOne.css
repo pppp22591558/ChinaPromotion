@@ -30,8 +30,17 @@
 
       a {
         display: none;
+        text-decoration: none;
         &.active {
           display: inline-block;
+        }
+        span.long-press {
+          display: inline-block;
+          font-size: 14px;
+          color: white;
+          font-weight: bold;
+          width: 200px;
+          vertical-align: middle;
         }
       }
 
