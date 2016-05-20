@@ -72,14 +72,6 @@ class AdOne extends Component{
     this.setState({isModalActive: false});
   }
 
-  onClickIos() {
-    // location.assign('https://appsto.re/cn/ixbvab.i')
-  }
-
-  onClickAndroid() {
-    console.log('android');
-  }
-
   render(){
     let styles = {
       header: {
@@ -104,6 +96,7 @@ class AdOne extends Component{
     let header_2 = getContent(this.props.version).scene1.header_2;
     let subtitle = getContent(this.props.version).scene1.subtitle;
     let long_press = getContent(this.props.version).scene1.long_press;
+    let other_browsers = getContent(this.props.version).scene1.other_browsers;
     let img_type;
     if (this.props.version === 3 || this.props.version === 4){
       img_type = '_tw';
@@ -128,8 +121,7 @@ class AdOne extends Component{
           <div className="download">
             <a href="/ios-download"
               className={`ios ${(os != 'AndroidOS') && 'active'}`}
-              data-download="ios"
-              onClick={::this.onClickIos}>
+              data-download="ios">
               <img ref="icon1"
                 src={isWx?
                   require('./ios_qr_code.png') :
@@ -143,12 +135,10 @@ class AdOne extends Component{
               className={`android ${(os != 'iOS') && 'active'}`}
               data-download="android">
               <img ref="icon2"
-                src={isWx?
-                  require('./android_qr_code.png') :
-                  require('./android' + img_type + '.png')}
+                src={require('./android' + img_type + '.png')}
                 data-download="android"/>
                 { isWx &&
-                  <span className="long-press">{long_press}</span>
+                  <span className="other-browsers">{other_browsers}</span>
                 }
             </a>
           </div>

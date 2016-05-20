@@ -6,7 +6,8 @@ let lines = [
       header_1: "2014沃顿商学院",
       header_2: "全球教育创新总冠军",
       subtitle: "中国学生定制版",
-      long_press: "长按二维码後点选「识别图中QR Code」"
+      long_press: "长按二维码後点选「识别图中QR Code」",
+      other_browsers: "亲，请动动手指，点击右上角按钮，用其他浏览器下载！"
     },
     scene2: {
       header: "答题攻地",
@@ -63,7 +64,8 @@ let lines = [
       header_1: "2014華頓商學院",
       header_2: "全球教育創新總冠軍",
       subtitle: "台灣學生定製版",
-      long_press: "長按左圖後點選「識別圖中QR Code」"
+      long_press: "長按左圖後點選「識別圖中QR Code」",
+      other_browsers: "親，請動動手指，點擊右上角按鈕，用其他瀏覽器下載！"
     },
     scene2: {
       header: "答題攻地",

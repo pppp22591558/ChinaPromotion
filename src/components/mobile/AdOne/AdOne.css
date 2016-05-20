@@ -34,9 +34,9 @@
         &.active {
           display: inline-block;
         }
-        span.long-press {
+        span.long-press, span.other-browsers {
           display: inline-block;
-          font-size: 14px;
+          font-size: 16px;
           color: white;
           font-weight: bold;
           width: 200px;
