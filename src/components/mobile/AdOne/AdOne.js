@@ -92,11 +92,11 @@ class AdOne extends Component{
       }
     };
 
-    let header_1 = getContent(this.props.version).scene1.header_1;
-    let header_2 = getContent(this.props.version).scene1.header_2;
-    let subtitle = getContent(this.props.version).scene1.subtitle;
-    let long_press = getContent(this.props.version).scene1.long_press;
-    let other_browsers = getContent(this.props.version).scene1.other_browsers;
+    let header_1 = getContent(1).scene1.header_1;
+    let header_2 = getContent(1).scene1.header_2;
+    let subtitle = getContent(1).scene1.subtitle;
+    let long_press = getContent(1).scene1.long_press;
+    let other_browsers = getContent(1).scene1.other_browsers;
     let img_type;
     if (this.props.version === 3 || this.props.version === 4){
       img_type = '_tw';
