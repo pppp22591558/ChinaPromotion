@@ -55,5 +55,14 @@
         -o-transition: all 0.5s ease-in-out;
       }
     }
+    .download.us {
+      a.ios {
+        display: none; // @TODO 美國版還沒有
+      }
+      img {
+        width: auto;
+        height: 40px;
+      }
+    }
   }
 }
