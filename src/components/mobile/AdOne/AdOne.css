@@ -55,5 +55,17 @@
         -o-transition: all 0.5s ease-in-out;
       }
     }
+    .download.us {
+      a.ios {
+        display: none;
+      }
+      a.android {
+        display: none;
+      }
+      img {
+        width: auto;
+        height: 40px;
+      }
+    }
   }
 }

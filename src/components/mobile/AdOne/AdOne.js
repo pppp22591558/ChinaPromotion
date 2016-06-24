@@ -4,6 +4,7 @@ import styles from './AdOne.css';
 import withStyles from '../../../decorators/withStyles';
 import Modal from '../Modal';
 import { get as getContent } from '../../../constants/ABTest';
+import { version } from '../../../config';
 
 @withStyles(styles)
 
@@ -92,14 +93,16 @@ class AdOne extends Component{
       }
     };
 
-    let header_1 = getContent(this.props.version).scene1.header_1;
-    let header_2 = getContent(this.props.version).scene1.header_2;
-    let subtitle = getContent(this.props.version).scene1.subtitle;
-    let long_press = getContent(this.props.version).scene1.long_press;
-    let other_browsers = getContent(this.props.version).scene1.other_browsers;
+    let header_1 = getContent(1).scene1.header_1;
+    let header_2 = getContent(1).scene1.header_2;
+    let subtitle = getContent(1).scene1.subtitle;
+    let long_press = getContent(1).scene1.long_press;
+    let other_browsers = getContent(1).scene1.other_browsers;
     let img_type;
-    if (this.props.version === 3 || this.props.version === 4){
-      img_type = '_tw';
+    if (version === 'us'){
+      img_type = '_us';
+    } else if (version === 'tw'){
+      img_type = '_tw'
     } else {
       img_type = '';
     }
@@ -118,7 +121,7 @@ class AdOne extends Component{
         <div className="view">
           <img ref="land" onClick={this.handleClick} style={styles.land} src={require('./land-08.png')}></img>
           <img ref="mark" onClick={this.handleClick} style={styles.mark} src={require('./mark-08.png')}></img>
-          <div className="download">
+          <div className={`download ${version}`}>
             <a href="/ios-download"
               className={`ios ${(os != 'AndroidOS') && 'active'}`}
               data-download="ios">

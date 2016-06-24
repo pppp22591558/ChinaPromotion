@@ -3,6 +3,7 @@ import reactDOM from 'react-dom';
 import styles from './AdFour.css';
 import withStyles from '../../../decorators/withStyles';
 import { get as getLine } from '../../../constants/ABTest';
+import { version } from '../../../config'
 
 @withStyles(styles)
 class AdFour extends Component{
@@ -36,10 +37,12 @@ class AdFour extends Component{
     let header = getLine(this.props.version).scene4.header;
     let subtitle = getLine(this.props.version).scene4.subtitle;
     let img_lan;
-    if (this.props.version < 2){
-      img_lan = '';
-    } else {
+    if (version === 'us'){
+      img_lan = '_us';
+    } else if (version === 'tw'){
       img_lan = '_tw';
+    } else {
+      img_lan = '';
     }
 
     return(
