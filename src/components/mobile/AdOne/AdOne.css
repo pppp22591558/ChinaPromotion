@@ -57,7 +57,10 @@
     }
     .download.us {
       a.ios {
-        display: none; // @TODO 美國版還沒有
+        display: none;
+      }
+      a.android {
+        display: none;
       }
       img {
         width: auto;
