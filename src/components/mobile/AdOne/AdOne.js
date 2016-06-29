@@ -73,6 +73,10 @@ class AdOne extends Component{
     this.setState({isModalActive: false});
   }
 
+  getAndroidDownloadLink() {
+    return version == 'us'? 'https://play.google.com/store/apps/details?id=com.boniotw.global.pagamo' : '/download'
+  }
+
   render(){
     let styles = {
       header: {
@@ -115,7 +119,7 @@ class AdOne extends Component{
         <div className="AdOne-header" ref="header" style={styles.header}>
           <img className="palm palm-left" src={require('./palm-left.png')}></img>
           <img className="palm palm-right" src={require('./palm-right.png')}></img>
-          <h2>{header_1}<br/>{header_2}<br/></h2>
+          <h2 className={`${version}`}>{header_1}<br/>{header_2}<br/></h2>
           <h3>{subtitle}</h3>
         </div>
         <div className="view">
@@ -134,8 +138,8 @@ class AdOne extends Component{
                   <span className="long-press">{long_press}</span>
                 }
             </a>
-            <a href="/download"
-              className={`android ${(os != 'iOS') && 'active'}`}
+            <a href={this.getAndroidDownloadLink()}
+              className={`android ${(os != 'iOS' || version == 'us') && 'active'}`}
               data-download="android">
               <img ref="icon2"
                 src={require('./android' + img_type + '.png')}

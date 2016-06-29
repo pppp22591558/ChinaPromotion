@@ -14,6 +14,9 @@
     .palm-right{
       right: 1.5em;
     }
+    h2.us {
+      font-size: 22px;
+    }
   }
 
   .view{
@@ -57,9 +60,6 @@
     }
     .download.us {
       a.ios {
-        display: none;
-      }
-      a.android {
         display: none;
       }
       img {
