@@ -44,7 +44,7 @@ server.get('/download', (req, res, next) => {
 server.get('*', async (req, res, next) => {
   try {
     let statusCode = 200;
-    const data = { title: '', description: '', css: '', body: '', mobileDetection: '' };
+    const data = { title: 'PaGamO App', description: '', css: '', body: '', mobileDetection: '' };
     const css = [];
     const context = {
       onInsertCss: value => css.push(value),
