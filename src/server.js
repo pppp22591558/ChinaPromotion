@@ -19,7 +19,14 @@ server.use(express.static(path.join(__dirname, 'public')));
 server.use('/api/content', require('./api/content'));
 
 server.get('/ios-download', (req, res) => {
-  res.redirect('https://itunes.apple.com/cn/app/pagamo-china/id1079252424')
+  const { version } = req.query
+  let url = ''
+  if (version === 'us') {
+    url = 'https://itunes.apple.com/app/pagamo/id1114434167'
+  } else {
+    url = 'https://itunes.apple.com/cn/app/pagamo-china/id1079252424'
+  }
+  res.redirect(url)
 })
 
 server.get('/download', (req, res, next) => {

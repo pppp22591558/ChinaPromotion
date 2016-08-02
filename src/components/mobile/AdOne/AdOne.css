@@ -59,9 +59,6 @@
       }
     }
     .download.us {
-      a.ios {
-        display: none;
-      }
       img {
         width: auto;
         height: 40px;

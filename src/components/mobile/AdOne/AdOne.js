@@ -126,7 +126,7 @@ class AdOne extends Component{
           <img ref="land" onClick={this.handleClick} style={styles.land} src={require('./land-08.png')}></img>
           <img ref="mark" onClick={this.handleClick} style={styles.mark} src={require('./mark-08.png')}></img>
           <div className={`download ${version}`}>
-            <a href="/ios-download"
+            <a href={`/ios-download?version=${version}`}
               className={`ios ${(os != 'AndroidOS') && 'active'}`}
               data-download="ios">
               <img ref="icon1"
