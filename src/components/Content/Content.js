@@ -30,13 +30,14 @@ class Content extends Component {
   }
 
   render(){
+    const { version } = this.props
     return(
       this.state.isActive?
       <div className="Content">
-        <SwipeView version = {this.props.version}/>
+        <SwipeView version = {version}/>
       </div>
       :
-      <LoadingPage />
+      <LoadingPage version = {version}/>
     )
     //decide to render mobile or desktop view
     // if (this.state.viewWidth > 768){
