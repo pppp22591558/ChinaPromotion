@@ -1,3 +1,36 @@
+@keyframes loader-animation {
+  100% {
+    background-position-x: -900px;
+  }
+}
+
+.loading-img {
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  text-align: center;
+  .loader {
+    width: 150px;
+    height: 150px;
+    background: url(./loading_sprite.png) left center;
+    background-size: 900px 150px;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    animation: loader-animation 1.2s steps(6) infinite;
+  }
+  .loading-text {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 8px;
+    color: white;
+    opacity: 0.8;
+  }
+}
+
 .site-content {
   display: none;
 }

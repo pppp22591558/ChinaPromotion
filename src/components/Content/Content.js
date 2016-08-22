@@ -14,7 +14,6 @@ class Content extends Component {
   }
 
   componentWillUnmount() {
-    console.log('unmount');
     this.setState({
       isActive: false
     });
