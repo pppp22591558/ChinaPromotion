@@ -209,6 +209,7 @@ const serverConfig = merge({}, config, {
     new webpack.DefinePlugin(GLOBALS),
     new webpack.BannerPlugin('require("source-map-support").install();',
       { raw: true, entryOnly: false }),
+    new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
   ],
   module: {
     loaders: [

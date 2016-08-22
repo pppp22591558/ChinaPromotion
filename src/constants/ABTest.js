@@ -5,6 +5,7 @@ function getLinesByVersion(version) {
     return [
       {
         test_id: 1,
+        title: "PaGamO App",
         scene1: {
           header_1: "Winner of Reimagine",
           header_2: "Education Award 2014",
@@ -45,6 +46,7 @@ function getLinesByVersion(version) {
     return [
       {
         test_id: 1,
+        title: "PaGamO全球首創電競學習App",
         scene1: {
           header_1: "PaGamO全球首創",
           header_2: "電競學習法",
@@ -85,6 +87,7 @@ function getLinesByVersion(version) {
     return [
       {
         test_id: 1,
+        title: "PaGamO中国学生定制版",
         scene1: {
           header_1: "2014沃顿商学院",
           header_2: "全球教育创新总冠军",

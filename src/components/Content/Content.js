@@ -38,31 +38,7 @@ class Content extends Component {
       :
       <LoadingPage version = {version}/>
     )
-    //decide to render mobile or desktop view
-    // if (this.state.viewWidth > 768){
-    //   return this.renderDesktop();
-    // } else {
-    //   return this.renderMobile();
-    // }
   }
-  // renderDesktop() {
-  //   return(
-  //     this.state.isActive?
-  //     <div></div>
-  //     :
-  //     <LoadingPage />
-  //   )
-  // }
-  // renderMobile() {
-  //   return(
-  //     this.state.isActive?
-  //     <div className="Content">
-  //       <SwipeView version = {this.props.version} viewWidth = {this.state.viewWidth} viewHeight = {this.state.viewHeight}/>
-  //     </div>
-  //     :
-  //     <LoadingPage />
-  //   )
-  // }
 }
 
 export default Content;

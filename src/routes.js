@@ -12,17 +12,9 @@ import ErrorPage from './components/mobile/ErrorPage';
 import SignupPage from './components/SignupPage';
 import Content from './components/Content';
 import FistLaunch from './components/versions/Launch-v1.0.0';
+import { get as getContent } from './constants/ABTest';
 
 const router = new Router(on => {
-  // on('*', async (state, next) => {
-  //   const component = await next();
-  //   return component && <App context={state.context}>{component}</App>;
-  // });
-
-  /**
-   * Launch v 1.0.0 Promotion Page
-   */
-
   on('/launch-v1.0.0', async (state) => {
     state.context.onSetTitle('China Promotion');
     return <FistLaunch context={state.context}/>
@@ -30,7 +22,8 @@ const router = new Router(on => {
 
   on('/:version', async(state) => {
     let version = state.params.version
-    // state.context.onSetTitle('China Promotion');
+    const { title } = getContent(version)
+    state.context.onSetTitle(title);
     return <App context={state.context} version={version}/>
   });
 
