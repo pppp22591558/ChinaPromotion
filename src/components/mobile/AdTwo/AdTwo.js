@@ -35,8 +35,9 @@ class AdTwo extends Component{
         marginBottom: '0.3em'
       }
     };
-    let header = getLine(this.props.version).scene2.header;
-    let subtitle = getLine(this.props.version).scene2.subtitle;
+    const { version } = this.props
+    let header = getLine(version).scene2.header;
+    let subtitle = getLine(version).scene2.subtitle;
     return(
       <div>
         <div className="header" ref="header" style={styles.header}>
@@ -46,7 +47,7 @@ class AdTwo extends Component{
           </div>
         </div>
         <div className="view">
-          <img className="land-img lands" onClick={this.handleClick} src={require('./lands.png')}></img>
+          <img className="land-img lands" onClick={this.handleClick} src={require('./lands.png')} alt={header + subtitle}></img>
         </div>
       </div>
     )

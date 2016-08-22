@@ -41,10 +41,11 @@ server.get('/download', (req, res, next) => {
 //
 // Register server-side rendering middleware
 // -----------------------------------------------------------------------------
-server.get('*', async (req, res, next) => {
+import languageCheck from './core/languageCheck'
+server.get('*', languageCheck, async (req, res, next) => {
   try {
     let statusCode = 200;
-    const data = { title: 'PaGamO App', description: '', css: '', body: '', mobileDetection: '' };
+    const data = { title: 'PaGamO App', description: '', css: '', body: '' };
     const css = [];
     const context = {
       onInsertCss: value => css.push(value),
@@ -53,7 +54,7 @@ server.get('*', async (req, res, next) => {
       onPageNotFound: () => statusCode = 404,
     };
 
-    await Router.dispatch({ path: req.path, context }, (state, component) => {
+    await Router.dispatch({ path: req.path, version: req.version, context }, (state, component) => {
       data.body = ReactDOM.renderToString(component);
       data.css = css.join('');
     });

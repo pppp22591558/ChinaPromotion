@@ -135,15 +135,15 @@ class SwipeView extends Component {
             </div>
           </div>
           {
-            _.includes([2, 6], this.props.version)?
-            <div style={styles} className="ad ad5">
-              <div className="ad-wrap">
-                <AdFive active = {this.state.slide5} {...props} />
-                <Character active = {this.state.slide5} line = {4} {...props} />
-              </div>
-            </div>
-            :
-            null
+            /**
+             * not published yet
+             * <div style={styles} className="ad ad5">
+             *  <div className="ad-wrap">
+             *    <AdFive active = {this.state.slide5} {...props} />
+             *    <Character active = {this.state.slide5} line = {4} {...props} />
+             * </div>
+             * </div>
+             */
           }
         </div>
       )

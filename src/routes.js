@@ -29,8 +29,8 @@ const router = new Router(on => {
   });
 
   on('/:version', async(state) => {
-    let version = parseInt(state.params.version) || 1;
-    state.context.onSetTitle('China Promotion');
+    let version = state.params.version
+    // state.context.onSetTitle('China Promotion');
     return <App context={state.context} version={version}/>
   });
 

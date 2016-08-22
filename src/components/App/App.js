@@ -67,4 +67,8 @@ class App extends Component {
 
 }
 
+App.propTypes = {
+  version: PropTypes.string,
+};
+
 export default App;

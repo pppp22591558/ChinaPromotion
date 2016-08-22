@@ -3,7 +3,6 @@ import reactDOM from 'react-dom';
 import styles from './AdFour.css';
 import withStyles from '../../../decorators/withStyles';
 import { get as getLine } from '../../../constants/ABTest';
-import { version } from '../../../config'
 
 @withStyles(styles)
 class AdFour extends Component{
@@ -34,8 +33,9 @@ class AdFour extends Component{
         color: 'white',
       },
     };
-    let header = getLine(this.props.version).scene4.header;
-    let subtitle = getLine(this.props.version).scene4.subtitle;
+    const { version } = this.props
+    let header = getLine(version).scene4.header;
+    let subtitle = getLine(version).scene4.subtitle;
     let img_lan;
     if (version === 'us'){
       img_lan = '_us';
@@ -53,8 +53,8 @@ class AdFour extends Component{
         </div>
         <div className="view">
           <div ref="practice" onClick={this.handleClick} className="practice-container">
-            <img className="practice practice-header" src={require('./practice' + img_lan + '.png')}></img>
-            <img className="practice" src={require('./practice_f1' + img_lan + '.png')}></img>
+            <img className="practice practice-header" src={require('./practice' + img_lan + '.png')} alt={header}></img>
+            <img className="practice" src={require('./practice_f1' + img_lan + '.png')} alt={subtitle}></img>
             <img className="practice" src={require('./practice_f2' + img_lan + '.png')}></img>
           </div>
         </div>

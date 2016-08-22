@@ -91,9 +91,10 @@ class AdThree extends Component{
         paddingTop: '50px'
       }
     };
-    let header = getLine(this.props.version).scene3.header;
-    let subtitle = getLine(this.props.version).scene3.subtitle;
-    let class_mates = getLine(this.props.version).scene3.class_mates
+    const { version } = this.props
+    let header = getLine(version).scene3.header;
+    let subtitle = getLine(version).scene3.subtitle;
+    let class_mates = getLine(version).scene3.class_mates
 
     return(
       <div>
@@ -104,11 +105,11 @@ class AdThree extends Component{
         <div className="AdThree-view" onClick={this.handleClick}>
           <div ref="rank1" className="rank rank1">
             <h5 style={styles.text}><span className="ranking">2</span><span className="name">{class_mates.a}</span><span className="points">100</span></h5>
-            <img ref="img" src={require('./rank.svg')}></img>
+            <img ref="img" src={require('./rank.svg')} alt={header + subtitle}></img>
           </div>
           <div ref="rank2" className="rank rank2">
             <h5 style={styles.text}><span className="ranking">3</span><span className="name">{class_mates.b}</span><span className="points">120</span></h5>
-            <img src={require('./rank.svg')}></img>
+            <img src={require('./rank.svg')} alt={header + subtitle}></img>
           </div>
           <div ref="rank3" className="rank rank3">
             <h5 style={styles.text}><span className="ranking">1</span><span className="name">{class_mates.me}</span><span className="points">200</span></h5>

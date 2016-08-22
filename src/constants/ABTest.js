@@ -1,7 +1,6 @@
 import _ from 'lodash';
-import { version } from '../config';
 
-function getLinesByVersion() {
+function getLinesByVersion(version) {
   if (version == 'us') {
     return [
       {
@@ -34,6 +33,46 @@ function getLinesByVersion() {
           header: "Perfect for Review!",
           subtitle: "Practise the Subjects You Like!",
           dialogue: "I aced it!"
+        },
+        scene5: {
+          header: "",
+          subtitle: "",
+          dialogue: ""
+        }
+      }
+    ];
+  } else if (version == 'tw') {
+    return [
+      {
+        test_id: 1,
+        scene1: {
+          header_1: "PaGamO全球首創",
+          header_2: "電競學習法",
+          subtitle: "超過300,000學生都在瘋狂PK<br/>你還不來佔地嗎？",
+          long_press: "",
+          other_browsers: ""
+        },
+        scene2: {
+          header: "攻城掠地",
+          subtitle: "邊玩邊學 戰勝測驗券",
+          dialogue: "喔不，又被攻擊了！"
+        },
+        scene3: {
+          header: "個人化統計分析",
+          subtitle: "自己的成績 自己看",
+          dialogue: "全球第一!",
+          class_mates: {
+            a: '同學A',
+            b: '同學 B',
+            c: '同學 C',
+            d: '同學 D',
+            me: '本學霸我'
+          }
+        },
+        scene4: {
+          header: "考前大補帖",
+          subtitle: "自己的錯題 自己改",
+          dialogue: "安拉，我玩得很好！"
         },
         scene5: {
           header: "",
@@ -227,31 +266,13 @@ function getLinesByVersion() {
   }
 }
 
-let lines = getLinesByVersion()
-
 let ABTest = {
-  get: (n) => {
-    switch (n) {
-      case 1:
-        return _.find(lines, {test_id: 1});
-        break;
-      case 2:
-        return _.find(lines, {test_id: 2});
-        break;
-      case 3:
-        return _.find(lines, {test_id: 3});
-        break;
-      case 4:
-        return _.find(lines, {test_id: 4});
-        break;
-      case 5:
-        return _.find(lines, {test_id: 5});
-        break;
-      case 6:
-        return _.find(lines, {test_id: 6});
-        break;
-      default:
-        return _.find(lines, {test_id: 1});
+  get: (version, n) => {
+    const lines = getLinesByVersion(version)
+    if (n >= 1 && n <= 6) {
+      return _.find(lines, {test_id: n});
+    } else {
+      return _.find(lines, {test_id: 1});
     }
   }
 }

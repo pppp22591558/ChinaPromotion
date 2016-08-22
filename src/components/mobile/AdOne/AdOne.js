@@ -4,7 +4,6 @@ import styles from './AdOne.css';
 import withStyles from '../../../decorators/withStyles';
 import Modal from '../Modal';
 import { get as getContent } from '../../../constants/ABTest';
-import { version } from '../../../config';
 
 @withStyles(styles)
 
@@ -74,6 +73,7 @@ class AdOne extends Component{
   }
 
   getAndroidDownloadLink() {
+    const { version } = this.props
     return version == 'us'? 'https://play.google.com/store/apps/details?id=com.boniotw.global.pagamo' : '/download'
   }
 
@@ -96,12 +96,9 @@ class AdOne extends Component{
         left: '45%'
       }
     };
-
-    let header_1 = getContent(1).scene1.header_1;
-    let header_2 = getContent(1).scene1.header_2;
-    let subtitle = getContent(1).scene1.subtitle;
-    let long_press = getContent(1).scene1.long_press;
-    let other_browsers = getContent(1).scene1.other_browsers;
+    const { version } = this.props
+    const content = getContent(version).scene1
+    const { header_1, header_2, subtitle, long_press, other_browsers } = content
     let img_type;
     if (version === 'us'){
       img_type = '_us';
@@ -117,13 +114,13 @@ class AdOne extends Component{
     return(
       <div className="AdOne">
         <div className="AdOne-header" ref="header" style={styles.header}>
-          <img className="palm palm-left" src={require('./palm-left.png')}></img>
-          <img className="palm palm-right" src={require('./palm-right.png')}></img>
+          <img className="palm palm-left" alt={header_1} src={require('./palm-left.png')}></img>
+          <img className="palm palm-right" src={require('./palm-right.png')} alt={header_2}></img>
           <h2 className={`${version}`}>{header_1}<br/>{header_2}<br/></h2>
-          <h3>{subtitle}</h3>
+          <h3 dangerouslySetInnerHTML={{ __html: subtitle }} />
         </div>
         <div className="view">
-          <img ref="land" onClick={this.handleClick} style={styles.land} src={require('./land-08.png')}></img>
+          <img ref="land" onClick={this.handleClick} style={styles.land} src={require('./land-08.png')} alt={subtitle}></img>
           <img ref="mark" onClick={this.handleClick} style={styles.mark} src={require('./mark-08.png')}></img>
           <div className={`download ${version}`}>
             <a href={`/ios-download?version=${version}`}

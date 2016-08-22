@@ -61,6 +61,9 @@ class Html extends Component {
         <meta name="description" content={this.props.description} />
         <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=0" />
         <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+        <link rel="alternate" href="http://app.pagamo.org/en" hrefLang="en" />
+        <link rel="alternate" href="http://app.pagamo.org/cn" hrefLang="zh-Hans" />
+        <link rel="alternate" href="http://app.pagamo.org/tw" hrefLang="zh-Hant" />
         <style id="css" dangerouslySetInnerHTML={{__html: this.props.css}} />
         <script dangerouslySetInnerHTML={this.TEST_SETUP()} />
         <script dangerouslySetInnerHTML={this.TEST_SEND()} />
