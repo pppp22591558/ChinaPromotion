@@ -130,6 +130,9 @@ const appConfig = merge({}, config, {
         compress: {
           warnings: VERBOSE,
         },
+        output: {
+          comments: false,
+        },
       }),
       new webpack.optimize.AggressiveMergingPlugin(),
     ] : []),
