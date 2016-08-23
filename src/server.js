@@ -23,7 +23,7 @@ server.use('/api/content', require('./api/content'));
 server.get('/ios-download', (req, res) => {
   const { version } = req.query;
   let url = '';
-  if (version === 'us') {
+  if (version === 'us' || version === 'tw') {
     url = 'https://itunes.apple.com/app/pagamo/id1114434167';
   } else {
     url = 'https://itunes.apple.com/cn/app/pagamo-china/id1079252424';
