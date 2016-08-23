@@ -47,7 +47,7 @@ function getLinesByVersion(version) {
     return [
       {
         test_id: 1,
-        title: "PaGamO全球首創電競學習App",
+        title: "媽媽我要玩PaGamO",
         scene1: {
           header_1: "PaGamO全球首創",
           header_2: "電競學習法",
