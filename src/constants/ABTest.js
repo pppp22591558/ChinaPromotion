@@ -11,7 +11,8 @@ function getLinesByVersion(version) {
           header_2: "Education Award 2014",
           subtitle: "PaGamO - Because Learning should feel like Winning!",
           long_press: "",
-          other_browsers: ""
+          other_browsers: "",
+          switch_version: "前往中文版",
         },
         scene2: {
           header: "Build Your Own Kingdom of Knowledge!",
@@ -52,7 +53,8 @@ function getLinesByVersion(version) {
           header_2: "電競學習法",
           subtitle: "超過300,000學生都在瘋狂PK<br/>你還不來佔地嗎？",
           long_press: "",
-          other_browsers: ""
+          other_browsers: "",
+          switch_version: "English Version",
         },
         scene2: {
           header: "攻城掠地",
@@ -93,7 +95,8 @@ function getLinesByVersion(version) {
           header_2: "全球教育创新总冠军",
           subtitle: "中国学生定制版",
           long_press: "长按二维码後点选「识别图中QR Code」",
-          other_browsers: "亲，请动动手指，点击右上角按钮，用其他浏览器下载！"
+          other_browsers: "亲，请动动手指，点击右上角按钮，用其他浏览器下载！",
+          switch_version: "切換",
         },
         scene2: {
           header: "答题攻地",

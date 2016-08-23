@@ -7,10 +7,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/server';
 import Router from './routes';
 import Html from './components/Html';
+import cookieParser from 'cookie-parser';
 
 const server = global.server = express();
 
 server.set('port', (process.env.PORT || 5000));
+server.use(cookieParser());
 server.use(express.static(path.join(__dirname, 'public')));
 
 //
@@ -19,29 +21,39 @@ server.use(express.static(path.join(__dirname, 'public')));
 server.use('/api/content', require('./api/content'));
 
 server.get('/ios-download', (req, res) => {
-  const { version } = req.query
-  let url = ''
+  const { version } = req.query;
+  let url = '';
   if (version === 'us') {
-    url = 'https://itunes.apple.com/app/pagamo/id1114434167'
+    url = 'https://itunes.apple.com/app/pagamo/id1114434167';
   } else {
-    url = 'https://itunes.apple.com/cn/app/pagamo-china/id1079252424'
+    url = 'https://itunes.apple.com/cn/app/pagamo-china/id1079252424';
   }
-  res.redirect(url)
-})
+  res.redirect(url);
+});
 
 server.get('/download', (req, res, next) => {
   try {
-    let file = __dirname + '/public/PaGamO_v0.6.8_production.apk'
+    const file = __dirname + '/public/PaGamO_v0.6.8_production.apk';
     res.download(file, 'PaGamO_v0.6.8_production.apk');
-  } catch (e) {
-    next(e)
+  } catch (err) {
+    next(err);
+  }
+});
+
+server.get('/switch', async(req, res, next) => {
+  try {
+    const { to } = req.query;
+    res.cookie('prefer-language', to, { httpOnly: true });
+    res.redirect('/');
+  } catch (err) {
+    next(err);
   }
 });
 
 //
 // Register server-side rendering middleware
 // -----------------------------------------------------------------------------
-import languageCheck from './core/languageCheck'
+import languageCheck from './core/languageCheck';
 server.get('*', languageCheck, async (req, res, next) => {
   try {
     let statusCode = 200;

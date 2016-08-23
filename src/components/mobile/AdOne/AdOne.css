@@ -37,6 +37,14 @@
         &.active {
           display: inline-block;
         }
+        &.switch-version {
+          display: block;
+          text-align: center;
+          padding-right: 8px;
+          padding-top: 8px;
+          color: white;
+          text-decoration: underline;
+        }
         span.long-press, span.other-browsers {
           display: inline-block;
           font-size: 16px;

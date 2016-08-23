@@ -98,7 +98,7 @@ class AdOne extends Component{
     };
     const { version } = this.props
     const content = getContent(version).scene1
-    const { header_1, header_2, subtitle, long_press, other_browsers } = content
+    const { header_1, header_2, subtitle, long_press, other_browsers, switch_version } = content
     let img_type;
     if (version === 'us'){
       img_type = '_us';
@@ -144,6 +144,9 @@ class AdOne extends Component{
                 { isWx &&
                   <span className="other-browsers">{other_browsers}</span>
                 }
+            </a>
+            <a className="switch-version" href={`/switch?to=${version === 'us'? '/tw' : '/us'}`}>
+              {switch_version}
             </a>
           </div>
         </div>
