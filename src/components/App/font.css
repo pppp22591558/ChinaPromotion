@@ -1,0 +1,21 @@
+/*
+* Noto Sans TC (Chinese_traditional) http://www.google.com/fonts/earlyaccess
+ */
+@font-face {
+  font-family: 'Noto Sans TC';
+  font-style: normal;
+  font-weight: light;
+  src: url('./noto-sans-font/NotoSansTC-Light.otf') format('opentype');
+}
+@font-face {
+   font-family: 'Noto Sans TC';
+   font-style: normal;
+   font-weight: normal;
+   src: url('./noto-sans-font/NotoSansTC-Regular.otf') format('opentype');
+ }
+@font-face {
+   font-family: 'Noto Sans TC';
+   font-style: normal;
+   font-weight: bold;
+   src: url('./noto-sans-font/NotoSansTC-Bold.otf') format('opentype');
+ }
