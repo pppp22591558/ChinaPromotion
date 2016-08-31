@@ -11,7 +11,7 @@ import cookieParser from 'cookie-parser';
 
 const server = global.server = express();
 
-server.set('port', (process.env.PORT || 5000));
+server.set('port', (process.env.PORT || 4000));
 server.use(cookieParser());
 server.use(express.static(path.join(__dirname, 'public')));
 

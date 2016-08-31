@@ -65,8 +65,8 @@ class Html extends Component {
         <link rel="alternate" href="http://app.pagamo.org/cn" hrefLang="zh-Hans" />
         <link rel="alternate" href="http://app.pagamo.org/tw" hrefLang="zh-Hant" />
         <link href='//fonts.googleapis.com/css?family=Source+Sans Pro:400|Varela+Round:400' rel='stylesheet' type='text/css' />
-        <script src="//s3-ap-northeast-1.amazonaws.com/justfont-user-script/jf-33366.js"></script>
         <style id="css" dangerouslySetInnerHTML={{__html: this.props.css}} />
+        <script src="jsfont.js" />
         <script dangerouslySetInnerHTML={this.TEST_SETUP()} />
         <script dangerouslySetInnerHTML={this.TEST_SEND()} />
       </head>
